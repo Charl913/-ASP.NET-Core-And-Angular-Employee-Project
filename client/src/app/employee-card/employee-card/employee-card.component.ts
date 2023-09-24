@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-employee-card',
@@ -9,7 +9,6 @@ import { Component, OnInit, Output } from '@angular/core';
 export class EmployeeCardComponent implements OnInit {
   title = 'Employees';
 
-  @Output()
   employees: any;
 
   constructor(private http: HttpClient) {
