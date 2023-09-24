@@ -4,10 +4,12 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmployeeCardComponent } from './employee-card/employee-card/employee-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmployeeCardComponent
   ],
   imports: [
     BrowserModule,
