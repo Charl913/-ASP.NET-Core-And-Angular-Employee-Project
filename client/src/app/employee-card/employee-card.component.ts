@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Member } from '../_models/member';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-card',
@@ -9,17 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeeCardComponent implements OnInit {
   title = 'Employees';
 
-  employees: any;
+  baseUrl = 'https://localhost:5001/api/Users';
+
+  employees: Member[] =[];
 
   constructor(private http: HttpClient) {
 
   }
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/users').subscribe({
-      next: response => this.employees = response,
+    this.http.get(this.baseUrl).subscribe({
+      next: response => {
+        const data = JSON.parse(JSON.stringify(response));
+        this.employees = data;
+        return this.employees;
+      },
       error: error => console.log(error),
-      complete: () => console.log('request has completed')
+      complete: () => console.log('request has completed', this.employees)
     });
   }
 }
