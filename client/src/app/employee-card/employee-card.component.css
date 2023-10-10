@@ -8,6 +8,10 @@
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
 }
 
+h1{
+    text-align: center;
+}
+
 .card{
     padding: 20px;
     margin-top: 20px;
@@ -30,6 +34,7 @@
 }
 
 .btn:hover {
+    cursor: pointer;
     background-color: orange;
     color: black;
 }

@@ -25,8 +25,7 @@ export class EmployeeCardComponent implements OnInit {
         this.employees = data;
         return this.employees;
       },
-      error: error => console.log(error),
-      complete: () => console.log('request has completed', this.employees)
+      error: error => console.log(error)
     });
   }
 }

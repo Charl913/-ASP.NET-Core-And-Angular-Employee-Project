@@ -1,27 +1,29 @@
  .navbar {
-    overflow: hidden;
-    background-color: orange;
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    opacity: 0.7;
-  }
-  
-  .navbar a {
-    float: left;
-    font-weight: bold;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 20px 20px;
-    text-decoration: none;
-  }
-  
-  .navbar a:hover {
-    font-weight: bold;
-    background: black;
-    color: white;
-    opacity: 0.7;
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 1, 1);
-  }
+   overflow: hidden;
+   background-color: orange;
+   position: fixed;
+   top: 0%;
+   width: 100%;
+   opacity: 0.7;
+   margin-bottom: 0
+ }
+
+ .navbar a {
+   float: left;
+   font-weight: bold;
+   display: block;
+   color: black;
+   text-align: center;
+   padding: 20px 20px;
+   text-decoration: none;
+ }
+
+ .navbar a:hover {
+   font-weight: bold;
+   background: black;
+   color: white;
+   opacity: 0.7;
+   border-radius: 20px;
+   box-shadow: 5px 5px 10px rgba(0, 0, 1, 1);
+   cursor: pointer;
+ }

@@ -1,0 +1,9 @@
+<div class="card-container">
+    <h1>Register Employee</h1>
+    <div>
+        {{form.value | json}}
+    </div>
+    <div [formGroup]="form">
+        <input placeholder="Employee Name" formControlName="name" #title>
+    </div>
+</div>

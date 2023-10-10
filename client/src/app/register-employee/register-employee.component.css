@@ -1,0 +1,18 @@
+.card-container {
+    padding: 20px;
+    background-color: orange;
+    color: black;
+    text-align: center;
+    opacity: 0.7;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
+}
+
+input {
+    margin-top: 20px;
+    padding: 20px;
+    width: 85%;
+    border-radius: 20px;
+    border: none;
+}

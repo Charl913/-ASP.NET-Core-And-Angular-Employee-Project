@@ -1,6 +1,9 @@
 <div class="navbar">
-    <a href="">Home</a>
+    <!-- <a routerLink="">Home</a> -->
+    <a routerLink="/employees">Employees</a>
+    <a routerLink="/register">Register Employee</a>
+    <a routerLink="/login" *ngIf="isLoggedIn">Login</a>
+    <a *ngIf="!isLoggedIn">Log Out</a>
 </div>
 
-<app-employee-card>
-</app-employee-card>
+<router-outlet></router-outlet>
