@@ -1,8 +1,5 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Member } from '../_models/member';
-import { BehaviorSubject, take } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-detail',
@@ -13,7 +10,7 @@ export class EmployeeDetailComponent {
   emp: Member = {} as Member
 
 
-  constructor(private http: HttpClient) {
+  constructor() {
     
   }
 
