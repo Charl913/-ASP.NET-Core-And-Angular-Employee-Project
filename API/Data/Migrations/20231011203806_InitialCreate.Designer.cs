@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231010190802_InitialCreate")]
+    [Migration("20231011203806_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -36,6 +36,9 @@ namespace API.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JobDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Test")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

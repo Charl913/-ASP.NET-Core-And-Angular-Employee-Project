@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+
 
 const routes: Routes = [
   {
@@ -15,7 +17,11 @@ const routes: Routes = [
   },
   {
     path: 'employees',
-    component: EmployeeCardComponent
+    component: EmployeeCardComponent,
+  },
+  {
+    path: 'employees/detail',
+    component: EmployeeDetailComponent
   },
   {
     path: 'login',

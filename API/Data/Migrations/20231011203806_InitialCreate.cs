@@ -17,7 +17,8 @@ namespace API.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    JobDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    JobDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Test = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

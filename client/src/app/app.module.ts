@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegisterEmployeeComponent } from './register-employee/register-employee
     NavComponent,
     PageNotFoundComponent,
     LoginComponent,
-    RegisterEmployeeComponent
+    RegisterEmployeeComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Member } from '../_models/member';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
 
 @Component({
   selector: 'app-employee-card',
@@ -23,9 +24,18 @@ export class EmployeeCardComponent implements OnInit {
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
         this.employees = data;
-        return this.employees;
+        return localStorage.setItem('employees', JSON.stringify(this.employees));
       },
       error: error => console.log(error)
     });
+  }
+
+  setUser(id: number) {
+    const data = JSON.parse(localStorage.getItem('employees')!)
+    if(data !== null){
+      const employee = data.find((e: { id: number; }) => e.id === id);
+      console.log(employee)
+      localStorage.setItem('employee', JSON.stringify(employee))
+    }    
   }
 }

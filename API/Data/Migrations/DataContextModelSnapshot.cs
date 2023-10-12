@@ -35,6 +35,9 @@ namespace API.Data.Migrations
                     b.Property<string>("JobDescription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Test")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
