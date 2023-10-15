@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Member } from '../_models/member';
+import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -12,7 +12,7 @@ export class EmployeeCardComponent implements OnInit {
 
   baseUrl = 'https://localhost:5001/api/Users';
 
-  employees: Member[] =[];
+  employees: Employee[] =[];
 
   constructor(private http: HttpClient) {
 
@@ -23,14 +23,14 @@ export class EmployeeCardComponent implements OnInit {
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
         this.employees = data;
-        return localStorage.setItem('employees', JSON.stringify(this.employees));
+        return this.employees
       },
       error: error => console.log(error)
     });
   }
 
   setUser(id: number) {
-    const data = JSON.parse(localStorage.getItem('employees')!)
+    const data = this.employees
     if(data !== null){
       const employee = data.find((e: { id: number; }) => e.id === id);
       console.log(employee)

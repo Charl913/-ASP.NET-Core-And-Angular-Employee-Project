@@ -5,7 +5,7 @@ namespace API.DTOs
     public class RegisterDTO
     {
         [Required]
-        public string UserName { get; set; }
+        public string EmployeeName { get; set; }
         [Required]
         public string Password { get; set; }
     }

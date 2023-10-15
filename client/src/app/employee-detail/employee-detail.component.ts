@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Member } from '../_models/member';
+import { Employee } from '../_models/employee';
 
 @Component({
   selector: 'app-employee-detail',
@@ -7,7 +7,7 @@ import { Member } from '../_models/member';
   styleUrls: ['./employee-detail.component.css']
 })
 export class EmployeeDetailComponent {
-  emp: Member = {} as Member
+  employee: Employee = {} as Employee
 
 
   constructor() {
@@ -15,6 +15,6 @@ export class EmployeeDetailComponent {
   }
 
   ngOnInit(): void {
-    this.emp = JSON.parse(localStorage.getItem('employee')!)
+    this.employee = JSON.parse(localStorage.getItem('employee')!)
   }
 }
