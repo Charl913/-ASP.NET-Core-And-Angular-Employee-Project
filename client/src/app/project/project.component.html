@@ -1,0 +1,31 @@
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>Active Projects</h2> 
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>
+            Project Id: {{item.id}} <br>
+            Project Description: {{item.description}}
+            <button>View Project</button>
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h2>Finished Projects</h2>
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>
+            Project Id: {{item.id}} <br>
+            Project Description: {{item.description}}
+            <button>View Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

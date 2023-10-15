@@ -1,0 +1,13 @@
+<div class="card-container">
+    <h1>Login</h1>
+    <div class="card">
+        <div>
+            {{form.value | json}}
+        </div>
+        <div [formGroup]="form">
+            <input placeholder="Employee Name" formControlName="name" #title>
+            <input placeholder="Password" formControlName="password" #title>
+        </div>
+        <button>Log In</button>
+    </div>
+</div>

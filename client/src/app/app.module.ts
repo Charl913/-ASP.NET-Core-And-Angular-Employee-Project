@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { ProjectComponent } from './project/project.component';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     PageNotFoundComponent,
     LoginComponent,
     RegisterEmployeeComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

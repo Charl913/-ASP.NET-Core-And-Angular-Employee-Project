@@ -5,12 +5,13 @@ import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { ProjectComponent } from './project/project.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/employees',
+    redirectTo: '/login',
     pathMatch: "full"
   },
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'employees/detail',
     component: EmployeeDetailComponent
+  },
+  {
+    path: 'employees/detail/project',
+    component: ProjectComponent
   },
   {
     path: 'login',
