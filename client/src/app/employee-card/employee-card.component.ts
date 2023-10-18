@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, take } from 'rxjs';
 
 @Component({
   selector: 'app-employee-card',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeeCardComponent implements OnInit {
   title = 'Employees';
 
-  baseUrl = 'https://localhost:5001/api/Users';
+  baseUrl = 'https://localhost:5001/api/Employees';
 
   employees: Employee[] =[];
 

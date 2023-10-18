@@ -1,8 +1,9 @@
 <div class="navbar">
     <a routerLink="/employees" *ngIf="isLoggedIn">Employees</a>
     <a routerLink="/register" *ngIf="isLoggedIn">Register Employee</a>
-    <a routerLink="/employees" *ngIf="!isLoggedIn" (click)="logIn()">Login</a>
-    <button routerLink="/login" *ngIf="isLoggedIn" (click)="logOut()">Log Out</button>
+    <a routerLink="/employees" *ngIf="!isLoggedIn" (click)="logIn()">LogIn</a>
+    <button routerLink="/login" *ngIf="isLoggedIn" (click)="logOut()">LogOut
+    </button>
 </div>
 
 <router-outlet></router-outlet>

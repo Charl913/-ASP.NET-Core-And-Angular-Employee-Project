@@ -1,16 +1,17 @@
-<div class="card-container">
+<div class="heading">
     <h1>{{title}}</h1>
-    <div *ngFor="let employee of employees">
-        <div class="card">
+</div>
+
+<div class="card-container" >
+        <div class="card" *ngFor="let employee of employees">
             Employee ID:
             {{employee.id}} <br>
             <hr>
             Employee Name:
             {{employee.employeeName}} <br>
             <hr>
-            Job Description:
-            {{employee.jobDescription}} <br>
+            Job Title:
+            {{employee.jobTitle}} <br>
             <button class="btn" routerLink="detail" (click)="setUser(employee.id)">View</button>
         </div>
-    </div>
 </div>

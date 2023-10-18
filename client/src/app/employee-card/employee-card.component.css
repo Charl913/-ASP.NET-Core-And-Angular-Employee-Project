@@ -1,28 +1,45 @@
-.card-container{
+.card-container {
+    display: flex;
+    flex-direction: row;
     padding: 20px;
     background-color: orange;
     color: black;
     opacity: 0.7;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border: none;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
 }
 
-h1{
+.heading {
+    background-color: orange;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-sizing: border-box;
+    opacity: 0.7;
+}
+
+.isGreater {
+    color: red;
+}
+
+h1 {
     text-align: center;
 }
 
-.card{
+.card {
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px;
     background-color: black;
     color: white;
     border-radius: 10px;
     border: none;
     box-shadow: 10px 10px 30px rgba(0, 0, 1, 1);
+    width: 350px;
+    height: 100px;
 }
 
-.btn {
+.card .btn {
     font-size: large;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;

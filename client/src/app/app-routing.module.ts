@@ -4,8 +4,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
-import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
-import { ProjectComponent } from './project/project.component';
+import { EmployeeDetailComponent } from './employee-card/employee-detail/employee-detail.component';
+import { ProjectsComponent } from './employee-card/employee-detail/projects/projects.component';
 
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'employees/detail/project',
-    component: ProjectComponent
+    component: ProjectsComponent
   },
   {
     path: 'login',

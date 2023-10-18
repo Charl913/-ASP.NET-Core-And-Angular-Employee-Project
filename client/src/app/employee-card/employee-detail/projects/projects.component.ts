@@ -1,14 +1,14 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-import { Done, Todo } from '../project';
-import { Project } from '../_models/project';
+import { Done, Todo } from '../../../project';
+import { Project } from '../../../_models/project';
 
 @Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
 })
-export class ProjectComponent {
+export class ProjectsComponent {
   todo = Todo;
 
   done = Done;

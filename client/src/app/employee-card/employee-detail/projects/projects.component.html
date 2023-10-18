@@ -8,7 +8,7 @@
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let item of todo" cdkDrag>
             Project Id: {{item.id}} <br>
-            Project Description: {{item.description}}
+            Project Description: {{item.shortDescription}}
             <button>View Project</button>
         </div>
       </div>
@@ -22,7 +22,7 @@
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let item of done" cdkDrag>
             Project Id: {{item.id}} <br>
-            Project Description: {{item.description}}
+            Project Description: {{item.shortDescription}}
             <button>View Project</button>
         </div>
       </div>

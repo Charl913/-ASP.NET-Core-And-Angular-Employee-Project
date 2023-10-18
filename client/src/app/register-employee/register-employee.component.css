@@ -1,4 +1,7 @@
 .card-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
     padding: 20px;
     background-color: orange;
     color: black;
@@ -12,9 +15,10 @@
 input {
     margin-top: 20px;
     padding: 20px;
-    width: 85%;
+    width: 50%;
     border-radius: 20px;
     border: none;
+    text-align: center;
 }
 
 button {
@@ -22,7 +26,7 @@ button {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 20px;
-    width: 95%;
+    width: 50%;
     border-radius: 20px;
     border: none;
     padding: 15px;
@@ -34,8 +38,8 @@ button:hover {
     color: black;
 }
 .card{
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10px;
+    margin-top: 10px;
     background-color: black;
     color: white;
     border-radius: 10px;
