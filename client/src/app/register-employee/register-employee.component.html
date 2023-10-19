@@ -1,14 +1,11 @@
 <div class="card-container">
     <h1>Register Employee</h1>
     <div class="card">
-        <!-- <div>
-            {{form.value | json}}
-        </div> -->
-        <div [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="register()">
             <input placeholder="Employee Name" formControlName="employeeName">
             <input placeholder="Job Title" formControlName="jobTitle">
             <input placeholder="Password" formControlName="password">
-        </div>
-        <button [disabled]="!form.valid" type="submit" (click)="register(form.value)">Register</button>
+            <button [disabled]="!form.valid" type="submit">Register</button>
+        </form>
     </div>
 </div>

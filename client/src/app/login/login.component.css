@@ -10,6 +10,7 @@
 }
 
 input {
+    text-align: center;
     margin-top: 20px;
     padding: 20px;
     width: 85%;
@@ -22,7 +23,7 @@ button {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 20px;
-    width: 95%;
+    width: 60%;
     border-radius: 20px;
     border: none;
     padding: 15px;

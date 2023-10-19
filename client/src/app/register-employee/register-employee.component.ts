@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Employee } from '../_models/employee';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Food } from '../_models/food';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-register-employee',
@@ -13,28 +11,21 @@ import { Food } from '../_models/food';
 export class RegisterEmployeeComponent {
   baseUrl = 'https://localhost:5001/api/';
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
-
   form = this.fb.group({
     employeeName: ['', Validators.required],
     jobTitle: ['', Validators.required],
     password: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private accountService: AccountService) {
   }
-  register(value: any){
-    return this.http.post(this.baseUrl + 'account/register',value).subscribe({
-      next: () => {
+  register(){
+    const value = {...this.form.value}
+    this.accountService.register(value).subscribe({
+      next: _ => {
         this.router.navigateByUrl('/employees')
       },
-      error: error => {
-        console.log(error)
-      }
+      error: error => console.log(error)
     })
   }
 }
