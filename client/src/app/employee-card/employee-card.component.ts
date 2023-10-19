@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, take } from 'rxjs';
 
 @Component({
   selector: 'app-employee-card',

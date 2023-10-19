@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { EmployeeDetailComponent } from './employee-card/employee-detail/employee-detail.component';
-import { ProjectsComponent } from './employee-card/employee-detail/projects/projects.component';
+import { ProjectsComponent } from './employee-card/projects/projects.component';
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
