@@ -1,31 +1,35 @@
 <div cdkDropListGroup>
     <div class="example-container">
-      <h2>Active Projects</h2> 
+      <h2 style="text-align: center;">Active Projects</h2> 
       <div
         cdkDropList
-        [cdkDropListData]="todo"
+        [cdkDropListData]="Active"
         class="example-list"
         (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>
-            Project Id: {{item.id}} <br>
-            Project Description: {{item.shortDescription}}
-            <button>View Project</button>
+        <div class="example-box" *ngFor="let active of Active" cdkDrag>
+            Project Id: {{active.projectId}} <br>
+            Project Description: {{active.shortDescription}}
+            <button routerLink="project-detail" (click)="setProjectActive(active.projectId)">View Project</button>
         </div>
       </div>
     </div>
     <div class="example-container">
-      <h2>Finished Projects</h2>
+      <h2 style="text-align: center;">Finished Projects</h2>
       <div
         cdkDropList
-        [cdkDropListData]="done"
+        [cdkDropListData]="Finished"
         class="example-list"
         (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of done" cdkDrag>
-            Project Id: {{item.id}} <br>
-            Project Description: {{item.shortDescription}}
-            <button>View Project</button>
+        <div class="example-box" *ngFor="let finished of Finished" cdkDrag>
+            Project Id: {{finished.projectId}} <br>
+            Project Description: {{finished.shortDescription}}
+            <button routerLink="project-detail" (click)="setProjectFinished(finished.projectId)">View Project</button>
         </div>
       </div>
+    </div>
+    <div> 
+      <button class="btn-add" routerLink="add-project">Add Project</button>
+      <button class="btn-add" (click)="save()">Save</button>
     </div>
   </div>
   

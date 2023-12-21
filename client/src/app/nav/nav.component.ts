@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,18 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit{
-  isLoggedIn = true
+  constructor(public accountService: AccountService) {}
 
   ngOnInit(): void {
   }
 
   logOut() {
-    this.isLoggedIn = false;
-    return this.isLoggedIn
-  }
-
-  logIn() {
-    this.isLoggedIn = true;
-    return this.isLoggedIn    
+    this.accountService.logout()
   }
 }

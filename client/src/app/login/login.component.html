@@ -3,7 +3,7 @@
     <div class="card">
         <form [formGroup]="form" (ngSubmit)="login()">
             <input placeholder="Employee Name" formControlName="employeeName">
-            <input placeholder="Password" formControlName="password">
+            <input type="password" placeholder="Password" formControlName="password">
             <button type="submit" [disabled]="!form.valid">Log In</button>
         </form>
     </div>

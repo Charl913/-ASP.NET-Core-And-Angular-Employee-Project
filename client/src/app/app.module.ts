@@ -14,6 +14,8 @@ import { ProjectsComponent } from './employee-card/projects/projects.component';
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectDetailComponent } from './employee-card/projects/project-detail/project-detail.component';
+import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterEmployeeComponent,
     EmployeeDetailComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectDetailComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,

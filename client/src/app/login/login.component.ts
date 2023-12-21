@@ -10,11 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   form = this.fb.group({
-    employeeName : ['', Validators.required],
-    password: ['', Validators.required]
+    employeeName : ['karla', Validators.required],
+    password: ['password', Validators.required]
   })
-
-  isLoggedIn = false;
 
   constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) {
   }
@@ -24,7 +22,6 @@ export class LoginComponent {
     this.accountService.login(values).subscribe({
       next: _ => {
         this.router.navigateByUrl('/employees')
-        this.isLoggedIn = true
       },
       error: error => console.log(error)
     })

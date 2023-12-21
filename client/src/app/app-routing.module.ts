@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import { EmployeeDetailComponent } from './employee-card/employee-detail/employee-detail.component';
 import { ProjectsComponent } from './employee-card/projects/projects.component';
+import { ProjectDetailComponent } from './employee-card/projects/project-detail/project-detail.component';
+import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
 
 
 const routes: Routes = [
@@ -33,6 +35,14 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterEmployeeComponent
+  },
+  {
+    path: 'employees/projects/project-detail',
+    component: ProjectDetailComponent
+  },
+  {
+    path: 'employees/projects/add-project',
+    component: AddProjectComponent
   },
   {
     path: '**',

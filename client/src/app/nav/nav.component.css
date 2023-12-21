@@ -17,16 +17,7 @@
    text-decoration: none;
  }
 
- .navbar a:hover {
-   font-weight: bold;
-   background: black;
-   color: white;
-   cursor: pointer;
- }
-
- .navbar button {
-  background-color: orange;
-  border: none;
+ .navbar .logOut {
   float: right;
   font-weight: bold;
   display: block;
@@ -34,6 +25,13 @@
   text-align: center;
   padding: 20px 20px;
   text-decoration: none;
+ }
+
+ .navbar a:hover {
+   font-weight: bold;
+   background: black;
+   color: white;
+   cursor: pointer;
  }
 
  .navbar button:hover {

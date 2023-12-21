@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../_models/employee';
-import { BehaviorSubject, take } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-detail',
@@ -17,6 +15,6 @@ export class EmployeeDetailComponent {
   }
 
   ngOnInit(): void {
-    this.employee = JSON.parse(localStorage.getItem('employee')!)
+    this.employee = JSON.parse(localStorage.getItem('employees')!)
   }
 }

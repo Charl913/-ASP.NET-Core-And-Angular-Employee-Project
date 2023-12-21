@@ -4,7 +4,7 @@
         <form [formGroup]="form" (ngSubmit)="register()">
             <input placeholder="Employee Name" formControlName="employeeName">
             <input placeholder="Job Title" formControlName="jobTitle">
-            <input placeholder="Password" formControlName="password">
+            <input type="password" placeholder="Password" formControlName="password">
             <button [disabled]="!form.valid" type="submit">Register</button>
         </form>
     </div>

@@ -1,8 +1,8 @@
 <div class="navbar">
-    <a routerLink="/employees" routerLinkActive="isActive" *ngIf="isLoggedIn">Employees</a>
-    <a routerLink="/register" routerLinkActive="isActive" *ngIf="isLoggedIn">Register Employee</a>
-    <a routerLink="/employees" routerLinkActive="isActive" *ngIf="!isLoggedIn" (click)="logIn()">LogIn</a>
-    <button routerLink="/login" routerLinkActive="isActive" *ngIf="isLoggedIn" (click)="logOut()">LogOut
-    </button>
+    <a routerLink="/employees" routerLinkActive="isActive" *ngIf="accountService.currentEmployee$ | async">Employees</a>
+    <a routerLink="/register" routerLinkActive="isActive">Register Employee</a>
+    <a routerLink="/login" routerLinkActive="isActive" *ngIf="!(accountService.currentEmployee$ | async)">LogIn</a>
+    <a class="logOut" routerLink="/login" routerLinkActive="isActive" *ngIf="accountService.currentEmployee$ | async" (click)="logOut()">LogOut
+    </a>
 </div>
 <router-outlet></router-outlet>
