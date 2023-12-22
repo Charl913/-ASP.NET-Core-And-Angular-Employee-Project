@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../_models/project';
 import { HttpClient } from '@angular/common/http';
+import { Employee } from 'src/app/_models/employee';
 
 @Component({
   selector: 'app-projects',
@@ -24,9 +25,7 @@ export class ProjectsComponent implements OnInit {
         const data = JSON.parse(JSON.stringify(response));
         this.projects = data;
         if (this.projects) {
-          this.projectActive();
-          this.projectFinished();
-          return this.projects
+          return this.setUserProjects();
         }
         return;
       },
@@ -74,18 +73,36 @@ export class ProjectsComponent implements OnInit {
     return this.Finished;
   }
 
-  setProjectActive(index: number) {
+  viewProjectActive(index: number) {
     if (this.Active !== null) {
       const projectActive = this.Active[index];
       localStorage.setItem('project', JSON.stringify(projectActive));
     }
   }
 
-  setProjectFinished(index: number) {
+  viewProjectFinished(index: number) {
     const dataFinished = this.Finished
     if (dataFinished !== null) {
       const projectFinished = this.Finished[index];
       localStorage.setItem('project', JSON.stringify(projectFinished));
     }
+  }
+
+  setUserProjects() {
+    const employee = localStorage.getItem('employees')
+    if(!employee) return;
+    const employeeProjects: Employee = JSON.parse(employee)
+    console.log(employeeProjects.id)
+    const projects = this.projects.filter(item => employeeProjects.id === item.employeeId)
+    this.projects = projects;
+    if(projects) {
+      this.projectActive();
+      this.projectFinished();
+      return projects;
+    }
+    else{
+      return;
+    }
+    
   }
 }

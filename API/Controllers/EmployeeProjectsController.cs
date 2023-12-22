@@ -16,6 +16,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ApplicationUserProject>>> GetEmployeeProjects()
         {
+
             var employeeProjects = await _context.Projects.ToListAsync();
 
             return employeeProjects;

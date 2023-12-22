@@ -9,7 +9,7 @@
         <div class="example-box" *ngFor="let active of Active; index as i" cdkDrag>
             Project Id: {{active.projectId}} <br>
             Project Description: {{active.shortDescription}}
-            <button routerLink="project-detail" (click)="setProjectActive(i)">View Project</button>
+            <button routerLink="project-detail" (click)="viewProjectActive(i)">View Project</button>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="example-box" *ngFor="let finished of Finished; index as i" cdkDrag>
             Project Id: {{finished.projectId}} <br>
             Project Description: {{finished.shortDescription}}
-            <button routerLink="project-detail" (click)="setProjectFinished(i)">View Project</button>
+            <button routerLink="project-detail" (click)="viewProjectFinished(i)">View Project</button>
         </div>
       </div>
     </div>
