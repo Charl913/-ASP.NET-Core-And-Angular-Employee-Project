@@ -6,10 +6,10 @@
         [cdkDropListData]="Active"
         class="example-list"
         (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let active of Active" cdkDrag>
+        <div class="example-box" *ngFor="let active of Active; index as i" cdkDrag>
             Project Id: {{active.projectId}} <br>
             Project Description: {{active.shortDescription}}
-            <button routerLink="project-detail" (click)="setProjectActive(active.projectId)">View Project</button>
+            <button routerLink="project-detail" (click)="setProjectActive(i)">View Project</button>
         </div>
       </div>
     </div>
@@ -20,10 +20,10 @@
         [cdkDropListData]="Finished"
         class="example-list"
         (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let finished of Finished" cdkDrag>
+        <div class="example-box" *ngFor="let finished of Finished; index as i" cdkDrag>
             Project Id: {{finished.projectId}} <br>
             Project Description: {{finished.shortDescription}}
-            <button routerLink="project-detail" (click)="setProjectFinished(finished.projectId)">View Project</button>
+            <button routerLink="project-detail" (click)="setProjectFinished(i)">View Project</button>
         </div>
       </div>
     </div>

@@ -1,9 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { Active, Finished } from '../../project';
 import { Project } from '../../_models/project';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -11,20 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  Active = Active;
-  Finished = Finished;
+  baseUrl = 'https://localhost:5001/api/employeeprojects';
+  Active: Project[] = [];
+  Finished: Project[] = [];
+  projects: Project[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
 
   }
 
   ngOnInit(): void {
+    this.http.get(this.baseUrl).subscribe({
+      next: response => {
+        const data = JSON.parse(JSON.stringify(response));
+        this.projects = data;
+        if (this.projects) {
+          this.projectActive();
+          this.projectFinished();
+          return this.projects
+        }
+        return;
+      },
+      error: error => console.log(error)
+    });
 
   }
 
   drop(event: CdkDragDrop<Project[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -33,27 +47,45 @@ export class ProjectsComponent implements OnInit {
         event.currentIndex,
       );
     }
-  }
 
-  save() {
-    alert('Coming soon')
-  }
+    if (this.Active[event.currentIndex] && this.Active[event.currentIndex].isActive === false) {
+      this.Active[event.currentIndex].isActive = true;
+      this.Active.indexOf(this.Active[event.currentIndex]);
+    }
 
-  setProjectActive(id: number) {
-    const dataActive = this.Active
-    if (dataActive !== null) {
-      const project = dataActive.find((e: { projectId: number; }) => e.projectId === id);
-      console.log(project)
-      localStorage.setItem('project', JSON.stringify(project))
+    if (this.Finished[event.currentIndex] && this.Finished[event.currentIndex].isActive === true) {
+      this.Finished[event.currentIndex].isActive = false;
+      this.Finished.indexOf(this.Finished[event.currentIndex]);
     }
   }
 
-  setProjectFinished(id: number) {
+  save() {
+    console.log('Active', this.Active)
+    console.log('Finished', this.Finished)
+  }
+
+  projectActive() {
+    this.Active = this.projects.filter(item => item.isActive === true)
+    return this.Active;
+  }
+
+  projectFinished() {
+    this.Finished = this.projects.filter(item => item.isActive === false)
+    return this.Finished;
+  }
+
+  setProjectActive(index: number) {
+    if (this.Active !== null) {
+      const projectActive = this.Active[index];
+      localStorage.setItem('project', JSON.stringify(projectActive));
+    }
+  }
+
+  setProjectFinished(index: number) {
     const dataFinished = this.Finished
     if (dataFinished !== null) {
-      const project = dataFinished.find((e: { projectId: number; }) => e.projectId === id);
-      console.log(project)
-      localStorage.setItem('project', JSON.stringify(project))
+      const projectFinished = this.Finished[index];
+      localStorage.setItem('project', JSON.stringify(projectFinished));
     }
   }
 }

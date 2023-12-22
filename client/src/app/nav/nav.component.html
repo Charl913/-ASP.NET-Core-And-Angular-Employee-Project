@@ -2,7 +2,8 @@
     <a routerLink="/employees" routerLinkActive="isActive" *ngIf="accountService.currentEmployee$ | async">Employees</a>
     <a routerLink="/register" routerLinkActive="isActive">Register Employee</a>
     <a routerLink="/login" routerLinkActive="isActive" *ngIf="!(accountService.currentEmployee$ | async)">LogIn</a>
-    <a class="logOut" routerLink="/login" routerLinkActive="isActive" *ngIf="accountService.currentEmployee$ | async" (click)="logOut()">LogOut
+    <a class="logOut" routerLink="/login" routerLinkActive="isActive" *ngIf="accountService.currentEmployee$ | async"
+        (click)="logOut()">LogOut
     </a>
 </div>
 <router-outlet></router-outlet>
