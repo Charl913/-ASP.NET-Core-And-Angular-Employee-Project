@@ -103,6 +103,5 @@ export class ProjectsComponent implements OnInit {
     else{
       return;
     }
-    
   }
 }

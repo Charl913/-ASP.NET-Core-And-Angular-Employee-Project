@@ -1,7 +1,7 @@
 <div class="card-container">
     <h1>Add Project</h1>
     <div class="card">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="addProject()">
             <input placeholder="Employee Job Title" formControlName="shortDescription">
             <input placeholder="Project Description" formControlName="longDescription">
             <button [disabled]="!form.valid" type="submit">Add</button>
