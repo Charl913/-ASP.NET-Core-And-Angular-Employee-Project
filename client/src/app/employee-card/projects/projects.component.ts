@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../_models/project';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from 'src/app/_models/employee';
+import { ProjectService } from 'src/app/_services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -15,7 +16,7 @@ export class ProjectsComponent implements OnInit {
   Finished: Project[] = [];
   projects: Project[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private projectService: ProjectService) {
 
   }
 
@@ -59,8 +60,8 @@ export class ProjectsComponent implements OnInit {
   }
 
   save() {
-    console.log('Active', this.Active)
-    console.log('Finished', this.Finished)
+    this.projectService.saveProjectState(this.Active).subscribe();
+    this.projectService.saveProjectState(this.Finished).subscribe();
   }
 
   projectActive() {
@@ -92,7 +93,6 @@ export class ProjectsComponent implements OnInit {
     const employee = localStorage.getItem('employees')
     if(!employee) return;
     const employeeProjects: Employee = JSON.parse(employee)
-    console.log(employeeProjects.id)
     const projects = this.projects.filter(item => employeeProjects.id === item.employeeId)
     this.projects = projects;
     if(projects) {

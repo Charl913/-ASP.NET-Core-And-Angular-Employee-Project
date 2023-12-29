@@ -33,7 +33,6 @@ export class EmployeeCardComponent implements OnInit {
     const data = this.employees
     if(data !== null){
       const employee = data.find((e: { id: number; }) => e.id === id);
-      console.log(employee)
       localStorage.setItem('employees', JSON.stringify(employee))
     }    
   }

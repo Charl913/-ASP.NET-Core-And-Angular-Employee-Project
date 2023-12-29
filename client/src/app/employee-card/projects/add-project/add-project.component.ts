@@ -30,15 +30,12 @@ export class AddProjectComponent implements OnInit {
   }
 
   addProject() {
-    console.log('employeeId:', this.form.get('employeeId')?.value);
-    console.log('the id:', this.currentEmployee.id)
     const value = { ...this.form.value }
     this.projectService.addProject(value).subscribe({
       next: _ => {
         this.router.navigateByUrl('employees/projects')
       },
       error: error => console.log(error)
-    })  
-    console.log(this.form.value)
+    })
   }
 }

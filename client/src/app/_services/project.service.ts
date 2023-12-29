@@ -17,4 +17,12 @@ export class ProjectService {
       })
     );   
   }
+
+  saveProjectState(value: any) {
+    return this.http.put<Project>(this.baseUrl + 'EmployeeProjects', value).pipe(
+      map(project => {
+        return project;
+      })
+    );
+  }
 }
