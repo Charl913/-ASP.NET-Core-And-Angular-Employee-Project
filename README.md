@@ -35,3 +35,12 @@ otherwise if the save button was not pressed it will return to the previous stat
 If the logout button was pressed (the user will return to the login page): 
 
 ![image](https://github.com/Charl913/-ASP.NET-Core-And-Angular-Employee-Project/assets/73072328/757f972e-ccad-4060-b116-bd4a54598f02)
+
+# Additional Features
+If there was a typo within the URL:
+
+![image](https://github.com/Charl913/-ASP.NET-Core-And-Angular-Employee-Project/assets/73072328/217dd165-6277-4b23-83df-5526255c5401)
+
+Then the following error message would be displayed:
+
+![image](https://github.com/Charl913/-ASP.NET-Core-And-Angular-Employee-Project/assets/73072328/8759cace-d46b-4a18-b895-9834649172e1)
