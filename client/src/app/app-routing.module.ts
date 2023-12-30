@@ -8,41 +8,39 @@ import { EmployeeDetailComponent } from './employee-card/employee-detail/employe
 import { ProjectsComponent } from './employee-card/projects/projects.component';
 import { ProjectDetailComponent } from './employee-card/projects/project-detail/project-detail.component';
 import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: "full"
-  },
-  {
-    path: 'employees',
-    component: EmployeeCardComponent,
-  },
-  {
-    path: 'employees/detail',
-    component: EmployeeDetailComponent
-  },
-  {
-    path: 'employees/projects',
-    component: ProjectsComponent
-  },
   {
     path: 'login',
     component: LoginComponent
   },
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: "full",
+  },
+  {
+    path: 'employees',
+    component: EmployeeCardComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'employees',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'detail', component: EmployeeDetailComponent},
+      {path: 'projects', component: ProjectsComponent},
+      {path: 'projects/project-detail', component: ProjectDetailComponent},
+      {path: 'projects/add-project', component: AddProjectComponent}
+    ]
+  },
+  {
     path: 'register',
     component: RegisterEmployeeComponent
-  },
-  {
-    path: 'employees/projects/project-detail',
-    component: ProjectDetailComponent
-  },
-  {
-    path: 'employees/projects/add-project',
-    component: AddProjectComponent
   },
   {
     path: '**',

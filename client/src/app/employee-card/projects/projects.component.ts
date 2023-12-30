@@ -62,6 +62,7 @@ export class ProjectsComponent implements OnInit {
   save() {
     this.projectService.saveProjectState(this.Active).subscribe();
     this.projectService.saveProjectState(this.Finished).subscribe();
+    alert('Project Saved');
   }
 
   projectActive() {

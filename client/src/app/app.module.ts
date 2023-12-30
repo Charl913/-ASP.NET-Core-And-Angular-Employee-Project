@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectDetailComponent } from './employee-card/projects/project-detail/project-detail.component';
 import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AddProjectComponent } from './employee-card/projects/add-project/add-pr
     ReactiveFormsModule,
     DragDropModule,
     FontAwesomeModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
