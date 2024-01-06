@@ -1,4 +1,5 @@
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,11 +24,14 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ApplicationUser>> GetEmployee(int id)
+        public async Task<ActionResult<EmployeeDTO>> GetEmployee(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
 
-            return employee;
+            return new EmployeeDTO {
+                EmployeeName = employee.EmployeeName,
+                JobTitle = employee.JobTitle
+            };
         }
     }
 }

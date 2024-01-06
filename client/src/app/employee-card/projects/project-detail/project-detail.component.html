@@ -2,13 +2,15 @@
     <table>
         <tr>
             <th>Project Id:</th>
-            <th>Project Short Description</th>
-            <th>Project Long Description</th>
+            <th>Project Title:</th>
+            <th>Project Requirements:</th>
+            <th>Project Code:</th>
         </tr>
         <tr>
             <td>{{project.projectId}}</td>
-            <td>{{project.shortDescription}}</td>
-            <td>{{project.longDescription}}</td>
+            <td>{{project.projectTitle}}</td>
+            <td>{{project.projectRequirements}}</td>
+            <td><a href={{project.projectCode}}>View Code</a></td>
         </tr>
     </table>
 </div>

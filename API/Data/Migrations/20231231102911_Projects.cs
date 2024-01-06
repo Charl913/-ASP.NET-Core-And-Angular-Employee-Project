@@ -17,9 +17,10 @@ namespace API.Data.Migrations
                     ProjectId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LongDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: true)
+                    ProjectTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectRequirements = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

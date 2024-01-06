@@ -2,8 +2,9 @@
     <h1>Add Project</h1>
     <div class="card">
         <form [formGroup]="form" (ngSubmit)="addProject()">
-            <input placeholder="Employee Job Title" formControlName="shortDescription">
-            <input placeholder="Project Description" formControlName="longDescription">
+            <input placeholder="Project Title" formControlName="projectTitle">
+            <input placeholder="Project Requirements" formControlName="projectRequirements">
+            <input placeholder="Project Code" formControlName="projectCode">
             <button [disabled]="!form.valid" type="submit">Add</button>
         </form>
     </div>

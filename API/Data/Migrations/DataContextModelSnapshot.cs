@@ -60,10 +60,13 @@ namespace API.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LongDescription")
+                    b.Property<string>("ProjectCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShortDescription")
+                    b.Property<string>("ProjectRequirements")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectTitle")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProjectId");

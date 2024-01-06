@@ -43,7 +43,7 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<ApplicationUser>> Login(LoginDTO loginDTO)
+        public async Task<ActionResult<EmployeeDTO>> Login(LoginDTO loginDTO)
         {
             var employee = await _context.Employees.SingleOrDefaultAsync(x => x.EmployeeName == loginDTO.EmployeeName);
 
@@ -64,7 +64,12 @@ namespace API.Controllers
                 }
             }
 
-            return employee;
+            // return employee;
+            return new EmployeeDTO
+            {
+                EmployeeName = employee.EmployeeName,
+                JobTitle = employee.JobTitle
+            };
         }
 
         private async Task<bool> EmployeeExists(string employeeName)

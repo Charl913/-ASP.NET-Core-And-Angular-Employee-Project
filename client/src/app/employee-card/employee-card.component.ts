@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeService } from '../_services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-card',
   templateUrl: './employee-card.component.html',
   styleUrls: ['./employee-card.component.css']
 })
-export class EmployeeCardComponent implements OnInit {
+export class EmployeeCardComponent implements OnInit{
   title = 'Employees';
 
   baseUrl = 'https://localhost:5001/api/Employees';
 
-  employees: Employee[] =[];
+  employees: Employee[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private employeeService: EmployeeService, private router: Router) {
 
   }
 
@@ -29,11 +31,11 @@ export class EmployeeCardComponent implements OnInit {
     });
   }
 
-  setUser(id: number) {
-    const data = this.employees
-    if(data !== null){
-      const employee = data.find((e: { id: number; }) => e.id === id);
-      localStorage.setItem('employees', JSON.stringify(employee))
-    }    
+  setDetails(id: number) {
+    this.router.navigate(['employees/detail'], { queryParams: { data: id } });
+  }
+
+  setProjects(id: number) {
+    this.router.navigate(['employees/projects'], { queryParams: { data: id } });
   }
 }

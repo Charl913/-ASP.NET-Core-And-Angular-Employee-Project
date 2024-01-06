@@ -30,8 +30,9 @@ namespace API.Controllers
             var project = new ApplicationUserProject
             {
                 EmployeeId = addProjectDTO.EmployeeId,
-                ShortDescription = addProjectDTO.ShortDescription.ToLower(),
-                LongDescription = addProjectDTO.LongDescription.ToLower(),
+                ProjectTitle = addProjectDTO.ProjectTitle,
+                ProjectRequirements = addProjectDTO.ProjectRequirements,
+                ProjectCode = addProjectDTO.ProjectCode,
                 IsActive = addProjectDTO.IsActive
             };
 

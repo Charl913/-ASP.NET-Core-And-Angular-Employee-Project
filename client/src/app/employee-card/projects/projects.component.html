@@ -8,7 +8,7 @@
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let active of Active; index as i" cdkDrag>
             Project Id: {{active.projectId}} <br>
-            Project Description: {{active.shortDescription}}
+            Project Title: {{active.projectTitle}}
             <button routerLink="project-detail" (click)="viewProjectActive(i)">View Project</button>
         </div>
       </div>
@@ -22,13 +22,13 @@
         (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let finished of Finished; index as i" cdkDrag>
             Project Id: {{finished.projectId}} <br>
-            Project Description: {{finished.shortDescription}}
+            Project Title: {{finished.projectTitle}}
             <button routerLink="project-detail" (click)="viewProjectFinished(i)">View Project</button>
         </div>
       </div>
     </div>
     <div> 
-      <button class="btn-add" routerLink="add-project">Add Project</button>
+      <button class="btn-add" (click)="addProject()" routerLink="add-project">Add Project</button>
       <button class="btn-add" (click)="save()">Save</button>
     </div>
   </div>

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231221144918_Projects")]
+    [Migration("20231231102911_Projects")]
     partial class Projects
     {
         /// <inheritdoc />
@@ -63,10 +63,13 @@ namespace API.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LongDescription")
+                    b.Property<string>("ProjectCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShortDescription")
+                    b.Property<string>("ProjectRequirements")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectTitle")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProjectId");

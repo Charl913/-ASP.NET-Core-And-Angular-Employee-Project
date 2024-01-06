@@ -36,7 +36,8 @@ button:hover {
     background-color: orange;
     color: black;
 }
-.card{
+
+.card {
     padding: 10px;
     margin-top: 10px;
     background-color: black;

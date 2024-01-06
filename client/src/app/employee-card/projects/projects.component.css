@@ -22,7 +22,7 @@
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: pointer;

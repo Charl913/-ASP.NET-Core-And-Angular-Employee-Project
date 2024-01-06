@@ -1,7 +1,8 @@
 export interface Project {
     projectId: number;
     employeeId: number;
-    shortDescription: string;
-    longDescription: string;
+    projectTitle: string;
+    projectRequirements: string;
+    projectCode: string;
     isActive: boolean;
 }

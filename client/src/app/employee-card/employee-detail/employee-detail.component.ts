@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../_models/employee';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-detail',
@@ -8,13 +10,26 @@ import { Employee } from '../../_models/employee';
 })
 export class EmployeeDetailComponent {
   employee: Employee = {} as Employee;
+  employeeId: any;
+  baseUrl = 'https://localhost:5001/api/employees/'
 
 
-  constructor() {
-
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
-  ngOnInit(): void {
-    this.employee = JSON.parse(localStorage.getItem('employees')!)
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.employeeId = params['data'] || null
+    })
+    this.getEmployeeDetails(this.employeeId)
+  }
+
+  getEmployeeDetails(id: number) {
+    return this.http.get<Employee>(this.baseUrl + id).subscribe({
+      next: res => {
+        const data = JSON.parse(JSON.stringify(res))
+        this.employee = data
+      }
+    });
   }
 }

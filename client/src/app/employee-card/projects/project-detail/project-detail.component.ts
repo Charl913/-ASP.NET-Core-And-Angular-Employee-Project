@@ -9,6 +9,8 @@ import { Project } from 'src/app/_models/project';
 export class ProjectDetailComponent implements OnInit{
   project: Project = {} as Project;
 
+  constructor() {}
+
   ngOnInit(): void {
     this.project = JSON.parse(localStorage.getItem('project')!);
   }

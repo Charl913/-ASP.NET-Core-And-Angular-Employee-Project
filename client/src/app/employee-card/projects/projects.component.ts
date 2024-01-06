@@ -4,6 +4,8 @@ import { Project } from '../../_models/project';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from 'src/app/_models/employee';
 import { ProjectService } from 'src/app/_services/project.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from 'src/app/_services/employee.service';
 
 @Component({
   selector: 'app-projects',
@@ -15,12 +17,21 @@ export class ProjectsComponent implements OnInit {
   Active: Project[] = [];
   Finished: Project[] = [];
   projects: Project[] = [];
+  employeeId: any;
+  employee: Employee = {} as Employee;
+  id: any;
 
-  constructor(private http: HttpClient, private projectService: ProjectService) {
+  constructor(private employeeService: EmployeeService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private projectService: ProjectService) {
+    this.route.queryParams.subscribe(params => {
+      this.employeeId = params['data']
+    })
 
-  }
+    this.employeeService.getEmployeeDetails(this.employeeId).subscribe({
+      next: res => {
+        this.employee = JSON.parse(JSON.stringify(res))
+      }
+    });
 
-  ngOnInit(): void {
     this.http.get(this.baseUrl).subscribe({
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
@@ -32,7 +43,9 @@ export class ProjectsComponent implements OnInit {
       },
       error: error => console.log(error)
     });
+  }
 
+  ngOnInit(): void {
   }
 
   drop(event: CdkDragDrop<Project[]>) {
@@ -91,18 +104,19 @@ export class ProjectsComponent implements OnInit {
   }
 
   setUserProjects() {
-    const employee = localStorage.getItem('employees')
-    if(!employee) return;
-    const employeeProjects: Employee = JSON.parse(employee)
-    const projects = this.projects.filter(item => employeeProjects.id === item.employeeId)
+    const projects = this.projects.filter(item => this.employee.id === item.employeeId)
     this.projects = projects;
-    if(projects) {
+    if (projects) {
       this.projectActive();
       this.projectFinished();
       return projects;
     }
-    else{
+    else {
       return;
     }
+  }
+
+  addProject() {
+    this.router.navigate(['employees/projects/add-project'], { queryParams: { data: this.employeeId } })
   }
 }
