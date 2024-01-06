@@ -44,3 +44,11 @@ If there was a typo within the URL:
 Then the following error message would be displayed:
 
 ![image](https://github.com/Charl913/-ASP.NET-Core-And-Angular-Employee-Project/assets/73072328/8759cace-d46b-4a18-b895-9834649172e1)
+
+If a user tries to access a part of the website without being logged in:
+
+![image](https://github.com/Charl913/-ASP.NET-Core-And-Angular-Employee-Project/assets/73072328/3be812ee-f59f-438f-9ec6-d7ad7ebb847b)
+
+Then the following error message would be displayed
+
+![image](https://github.com/Charl913/-ASP.NET-Core-And-Angular-Employee-Project/assets/73072328/b2d28723-2d84-456a-9ddf-563303bd4557)
