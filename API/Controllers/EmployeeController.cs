@@ -29,6 +29,7 @@ namespace API.Controllers
             var employee = await _context.Employees.FindAsync(id);
 
             return new EmployeeDTO {
+                Id = employee.Id,
                 EmployeeName = employee.EmployeeName,
                 JobTitle = employee.JobTitle
             };

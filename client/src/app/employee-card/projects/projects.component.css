@@ -1,3 +1,10 @@
+.card {
+  background-color: rgb(88, 86, 86);
+  padding: 20px;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
+}
+
 .example-container {
   width: 400px;
   max-width: 100%;
@@ -65,18 +72,20 @@ button {
   padding: 15px;
 }
 
-.btn-add {
+.btn {
   font-size: large;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 20px;
-  width: 60%;
+  width: 6%;
   border-radius: 20px;
   border: none;
-  padding: 15px;
+  padding: 10px;
+  background-color: black;
+  color: white;
 }
 
-.btn-add:hover {
+.btn:hover {
   cursor: pointer;
   background-color: orange;
   color: black;

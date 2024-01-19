@@ -6,6 +6,7 @@ import { Employee } from 'src/app/_models/employee';
 import { ProjectService } from 'src/app/_services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from 'src/app/_services/employee.service';
+import { faFloppyDisk, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-projects',
@@ -19,9 +20,11 @@ export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
   employeeId: any;
   employee: Employee = {} as Employee;
-  id: any;
+  faSquarePlus = faSquarePlus;
+  faFloppyDisk = faFloppyDisk;
 
-  constructor(private employeeService: EmployeeService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private projectService: ProjectService) {
+  constructor(private employeeService: EmployeeService, private router: Router, private route: ActivatedRoute,
+    private http: HttpClient, private projectService: ProjectService) {
     this.route.queryParams.subscribe(params => {
       this.employeeId = params['data']
     })
@@ -104,12 +107,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   setUserProjects() {
-    const projects = this.projects.filter(item => this.employee.id === item.employeeId)
-    this.projects = projects;
-    if (projects) {
+    const proj = this.projects.filter(item => this.employee.id == item.id)
+    this.projects = proj;
+    if (proj) {
       this.projectActive();
       this.projectFinished();
-      return projects;
+      return this.projects;
     }
     else {
       return;

@@ -1,35 +1,35 @@
-<div cdkDropListGroup>
+<div class="card">
+  <h2 style="color: white; text-align: center;">All Projects</h2>
+  <hr>
+  <br>
+  <div cdkDropListGroup>
     <div class="example-container">
-      <h2 style="text-align: center;">Active Projects</h2> 
-      <div
-        cdkDropList
-        [cdkDropListData]="Active"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
+      <h2 style="text-align: center;">Active Projects</h2>
+      <div cdkDropList [cdkDropListData]="Active" class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let active of Active; index as i" cdkDrag>
-            Project Id: {{active.projectId}} <br>
-            Project Title: {{active.projectTitle}}
-            <button routerLink="project-detail" (click)="viewProjectActive(i)">View Project</button>
+          Project Id: {{active.projectId}} <br>
+          Project Title: {{active.projectTitle}}
+          <button routerLink="project-detail" (click)="viewProjectActive(i)">View Project</button>
         </div>
       </div>
     </div>
     <div class="example-container">
       <h2 style="text-align: center;">Finished Projects</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="Finished"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
+      <div cdkDropList [cdkDropListData]="Finished" class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let finished of Finished; index as i" cdkDrag>
-            Project Id: {{finished.projectId}} <br>
-            Project Title: {{finished.projectTitle}}
-            <button routerLink="project-detail" (click)="viewProjectFinished(i)">View Project</button>
+          Project Id: {{finished.projectId}} <br>
+          Project Title: {{finished.projectTitle}}
+          <button routerLink="project-detail" (click)="viewProjectFinished(i)">View Project</button>
         </div>
       </div>
     </div>
-    <div> 
-      <button class="btn-add" (click)="addProject()" routerLink="add-project">Add Project</button>
-      <button class="btn-add" (click)="save()">Save</button>
+    <div style="text-align: center;">
+      <span>
+        <button class="btn" (click)="addProject()" routerLink="add-project"><fa-icon [icon]="faSquarePlus"
+            [size]="'2x'"></fa-icon></button>
+        <button style="margin-left: 10px;" class="btn" (click)="save()"><fa-icon [icon]="faFloppyDisk"
+            [size]="'2x'"></fa-icon></button>
+      </span>
     </div>
   </div>
-  
+</div>

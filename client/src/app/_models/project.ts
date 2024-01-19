@@ -1,6 +1,6 @@
 export interface Project {
+    id: number;
     projectId: number;
-    employeeId: number;
     projectTitle: string;
     projectRequirements: string;
     projectCode: string;

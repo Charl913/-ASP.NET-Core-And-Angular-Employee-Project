@@ -67,6 +67,7 @@ namespace API.Controllers
             // return employee;
             return new EmployeeDTO
             {
+                Id = employee.Id,
                 EmployeeName = employee.EmployeeName,
                 JobTitle = employee.JobTitle
             };

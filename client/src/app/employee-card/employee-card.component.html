@@ -1,6 +1,6 @@
 <div class="card-container">
     <h1>{{title}}</h1>
-    <div class="card" *ngFor="let employee of employees">
+    <div class="card" *ngFor="let employee of employees; let index as i">
         Employee ID:
         {{employee.id}} <br>
         <hr>
@@ -11,5 +11,10 @@
         {{employee.jobTitle}} <br>
         <button class="btn" routerLink="detail" (click)="setDetails(employee.id)">View Details</button>
         <button class="btn" routerLink="projects" (click)="setProjects(employee.id)">View Projects</button>
+        <div class="iContainer" style="text-align: center;">
+            <button (click)="deleteEmployee(employee.id)"><fa-icon [icon]="faTrash" [size]="'sm'"></fa-icon></button>
+            <button style="background-color: blue; margin-left: 10px;" (click)="addAdmin(employee.id)"><fa-icon [icon]="faUserTie"
+                    [size]="'sm'"></fa-icon></button>
+        </div>
     </div>
 </div>

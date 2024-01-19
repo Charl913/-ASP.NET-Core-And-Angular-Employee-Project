@@ -1,8 +1,7 @@
 namespace API.Entities
 {
-    public class ApplicationUser
+    public class ApplicationUser : BaseEntity
     {
-        public int Id { get; set; }
         public string EmployeeName { get; set; }
         public string JobTitle { get; set; }
         public byte[] PasswordHash { get; set; }

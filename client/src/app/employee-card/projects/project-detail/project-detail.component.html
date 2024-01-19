@@ -10,7 +10,9 @@
             <td>{{project.projectId}}</td>
             <td>{{project.projectTitle}}</td>
             <td>{{project.projectRequirements}}</td>
-            <td><a href={{project.projectCode}}>View Code</a></td>
+            <td>
+                <a href={{project.projectCode}}><fa-icon [icon]="faLink" [size]="'xl'"></fa-icon></a>
+            </td>
         </tr>
     </table>
 </div>

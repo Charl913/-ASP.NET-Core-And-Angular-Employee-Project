@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faFloppyDisk, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { Employee } from 'src/app/_models/employee';
 import { ProjectService } from 'src/app/_services/project.service';
 
@@ -14,6 +15,7 @@ export class AddProjectComponent implements OnInit {
   form: any;
   baseUrl = 'https://localhost:5001/api/employees/';
   employeeId: any;
+  faSquarePlus = faSquarePlus;
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder,
     private projectService: ProjectService, private router: Router, private http: HttpClient) {

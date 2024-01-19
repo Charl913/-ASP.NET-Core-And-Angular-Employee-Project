@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
-import { EmployeeService } from '../_services/employee.service';
 import { Router } from '@angular/router';
+import { faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-employee-card',
@@ -10,13 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-card.component.css']
 })
 export class EmployeeCardComponent implements OnInit{
+  faTrash = faTrash;
+  faUserTie = faUserTie
+  
+
   title = 'Employees';
 
   baseUrl = 'https://localhost:5001/api/Employees';
 
   employees: Employee[] = [];
 
-  constructor(private http: HttpClient, private employeeService: EmployeeService, private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -37,5 +41,15 @@ export class EmployeeCardComponent implements OnInit{
 
   setProjects(id: number) {
     this.router.navigate(['employees/projects'], { queryParams: { data: id } });
+  }
+
+  deleteEmployee(id: number) {
+    const employeeToDelete = JSON.stringify(this.employees.filter(q => q.id === id));
+    alert('are you sure you want to delete? ' + employeeToDelete);
+  }
+
+  addAdmin(id: number) {
+    const employeeToMakeAdmin = JSON.stringify(this.employees.filter(q => q.id === id));
+    alert('are you sure you want to make admin? ' + employeeToMakeAdmin);
   }
 }

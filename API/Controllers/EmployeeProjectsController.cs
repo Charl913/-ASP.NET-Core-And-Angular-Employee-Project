@@ -29,7 +29,7 @@ namespace API.Controllers
 
             var project = new ApplicationUserProject
             {
-                EmployeeId = addProjectDTO.EmployeeId,
+                Id = addProjectDTO.EmployeeId,
                 ProjectTitle = addProjectDTO.ProjectTitle,
                 ProjectRequirements = addProjectDTO.ProjectRequirements,
                 ProjectCode = addProjectDTO.ProjectCode,
