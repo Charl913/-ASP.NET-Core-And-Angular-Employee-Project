@@ -6,7 +6,11 @@
             <input placeholder="Job Title" formControlName="jobTitle">
             <input type="password" placeholder="Password" formControlName="password">
             <br>
-            <button [disabled]="!form.valid" type="submit">Register</button>
+            <button *ngIf="form.valid; else invalidForm" type="submit">Register</button>
+            <ng-template #invalidForm>
+                <h2>Unable to register just yet</h2>
+                <p>Please provide all the required information</p>
+            </ng-template>
         </form>
     </div>
 </div>
