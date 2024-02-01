@@ -5,6 +5,7 @@ using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace API.Controllers
 {
@@ -68,7 +69,7 @@ namespace API.Controllers
             return new EmployeeDTO
             {
                 Id = employee.Id,
-                EmployeeName = employee.EmployeeName,
+                EmployeeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(employee.EmployeeName),
                 JobTitle = employee.JobTitle
             };
         }

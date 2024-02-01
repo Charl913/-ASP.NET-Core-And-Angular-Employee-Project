@@ -1,3 +1,4 @@
+using System.Globalization;
 using API.Data;
 using API.DTOs;
 using API.Entities;
@@ -30,7 +31,7 @@ namespace API.Controllers
 
             return new EmployeeDTO {
                 Id = employee.Id,
-                EmployeeName = employee.EmployeeName,
+                EmployeeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(employee.EmployeeName),
                 JobTitle = employee.JobTitle
             };
         }
