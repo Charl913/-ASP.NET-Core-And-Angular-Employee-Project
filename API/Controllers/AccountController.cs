@@ -33,7 +33,8 @@ namespace API.Controllers
                 EmployeeName = registerDTO.EmployeeName.ToLower(),
                 JobTitle = registerDTO.JobTitle,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                IsAdmin = false
             };
 
             _context.Employees.Add(employee);
@@ -59,7 +60,7 @@ namespace API.Controllers
 
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if(computedHash[i] != employee.PasswordHash[i])
+                if (computedHash[i] != employee.PasswordHash[i])
                 {
                     return Unauthorized("Invalid Passowrd");
                 }
@@ -70,7 +71,8 @@ namespace API.Controllers
             {
                 Id = employee.Id,
                 EmployeeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(employee.EmployeeName),
-                JobTitle = employee.JobTitle
+                JobTitle = employee.JobTitle,
+                IsAdmin = employee.IsAdmin
             };
         }
 

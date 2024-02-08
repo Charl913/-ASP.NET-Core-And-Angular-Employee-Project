@@ -6,5 +6,6 @@ namespace API.Entities
         public string JobTitle { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

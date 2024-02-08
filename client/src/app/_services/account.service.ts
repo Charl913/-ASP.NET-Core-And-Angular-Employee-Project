@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
-import { Employee } from '../_models/employee'; 
+import { Employee } from '../_models/employee';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
   baseUrl = 'https://localhost:5001/api/'
-  
+
   private currentEmployeeSource = new BehaviorSubject<Employee | null>(null);
   currentEmployee$ = this.currentEmployeeSource.asObservable();
 
@@ -18,19 +18,19 @@ export class AccountService {
     return this.http.post<Employee>(this.baseUrl + 'account/login', model).pipe(
       map((response: Employee) => {
         const employee = response;
-        if(employee){
+        if (employee) {
           this.setCurrentUser(employee);
         }
       })
     );
   }
-  
+
   register(value: any) {
     return this.http.post<Employee>(this.baseUrl + 'account/register', value).pipe(
       map(employee => {
-        if(employee){
-          this.setCurrentUser(employee);
-        }
+        // if(employee){
+        //   this.setCurrentUser(employee);
+        // }
         return employee;
       })
     );
@@ -38,7 +38,7 @@ export class AccountService {
 
   setCurrentUser(employee: Employee) {
     this.currentEmployeeSource.next(employee);
-    localStorage.setItem('employee', JSON.stringify(employee));     
+    localStorage.setItem('employee', JSON.stringify(employee));
   }
 
   logout() {

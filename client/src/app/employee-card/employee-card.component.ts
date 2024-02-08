@@ -3,16 +3,17 @@ import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-employee-card',
   templateUrl: './employee-card.component.html',
   styleUrls: ['./employee-card.component.css']
 })
-export class EmployeeCardComponent implements OnInit{
+export class EmployeeCardComponent implements OnInit {
   faTrash = faTrash;
   faUserTie = faUserTie
-  
+
 
   title = 'Employees';
 
@@ -20,7 +21,9 @@ export class EmployeeCardComponent implements OnInit{
 
   employees: Employee[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {
+  currentEmployee: Employee = {} as Employee;
+
+  constructor(private http: HttpClient, private router: Router, private accountService: AccountService) {
 
   }
 
@@ -33,6 +36,14 @@ export class EmployeeCardComponent implements OnInit{
       },
       error: error => console.log(error)
     });
+
+    this.accountService.currentEmployee$.subscribe({
+      next: res => {
+        if (res) {
+          this.currentEmployee = res
+        }
+      }
+    })
   }
 
   setDetails(id: number) {

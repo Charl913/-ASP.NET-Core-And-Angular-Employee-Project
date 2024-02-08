@@ -13,9 +13,9 @@ namespace API.Controllers
         public EmployeesController(DataContext context)
         {
             _context = context;
-            
+
         }
-        
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetEmployees()
         {
@@ -29,10 +29,12 @@ namespace API.Controllers
         {
             var employee = await _context.Employees.FindAsync(id);
 
-            return new EmployeeDTO {
+            return new EmployeeDTO
+            {
                 Id = employee.Id,
                 EmployeeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(employee.EmployeeName),
-                JobTitle = employee.JobTitle
+                JobTitle = employee.JobTitle,
+                IsAdmin = employee.IsAdmin
             };
         }
     }
