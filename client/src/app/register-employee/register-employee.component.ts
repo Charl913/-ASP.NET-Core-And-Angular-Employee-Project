@@ -12,9 +12,21 @@ export class RegisterEmployeeComponent {
   baseUrl = 'https://localhost:5001/api/';
 
   form = this.fb.group({
-    employeeName: ['', Validators.required],
+    employeeName: ['', {
+      validators: [
+        Validators.required
+      ],
+      updateOn: 'blur',
+    }],
+
     jobTitle: ['', Validators.required],
-    password: ['', Validators.required]
+
+    password: ['', {
+      validators: [
+        Validators.required,
+        Validators.minLength(8)
+      ],
+    }]
   });
 
   constructor(private fb: FormBuilder, private router: Router, private accountService: AccountService) {
@@ -27,5 +39,8 @@ export class RegisterEmployeeComponent {
       },
       error: error => console.log(error)
     })
+  }
+  get password() {
+    return this.form.controls['password'];
   }
 }

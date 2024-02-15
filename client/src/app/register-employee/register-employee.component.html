@@ -10,6 +10,7 @@
             <ng-template #invalidForm>
                 <h2>Unable to register just yet</h2>
                 <p>Please provide all the required information</p>
+                <p *ngIf="(!password.valid) && (password.value)" style="color: red;">*invalid password</p>
             </ng-template>
         </form>
     </div>

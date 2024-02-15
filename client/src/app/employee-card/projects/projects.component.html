@@ -24,7 +24,7 @@
       </div>
     </div>
     <div style="text-align: center;">
-      <span>
+      <span *ngIf="this.currentEmployee.isAdmin">
         <button class="btn" (click)="addProject()" routerLink="add-project"><fa-icon [icon]="faSquarePlus"
             [size]="'2x'"></fa-icon></button>
         <button style="margin-left: 10px;" class="btn" (click)="save()"><fa-icon [icon]="faFloppyDisk"

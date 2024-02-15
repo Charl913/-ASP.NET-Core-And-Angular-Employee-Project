@@ -7,6 +7,7 @@ import { ProjectService } from 'src/app/_services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from 'src/app/_services/employee.service';
 import { faFloppyDisk, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+import { AccountService } from 'src/app/_services/account.service';
 
 @Component({
   selector: 'app-projects',
@@ -22,8 +23,10 @@ export class ProjectsComponent implements OnInit {
   employee: Employee = {} as Employee;
   faSquarePlus = faSquarePlus;
   faFloppyDisk = faFloppyDisk;
+  currentEmployee: Employee = {} as Employee
 
-  constructor(private employeeService: EmployeeService, private router: Router, private route: ActivatedRoute,
+  constructor(private accountService: AccountService, private employeeService: EmployeeService,
+    private router: Router, private route: ActivatedRoute,
     private http: HttpClient, private projectService: ProjectService) {
     this.route.queryParams.subscribe(params => {
       this.employeeId = params['data']
@@ -49,6 +52,13 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.accountService.currentEmployee$.subscribe({
+      next: res => {
+        if (res) {
+          this.currentEmployee = res;
+        }
+      }
+    })
   }
 
   drop(event: CdkDragDrop<Project[]>) {
