@@ -7,8 +7,10 @@
 <div class="dropdown" *ngIf="accountService.currentEmployee$ | async">
     <button class="dropbtn">Welcome {{this.currentEmployee.employeeName}} <i class="arrow down"></i></button>
     <div class="dropdown-content">
-        <a routerLink="/login" routerLinkActive="isActive" (click)="logOut()">LogOut</a>
-        <a class="edit" routerLink="/edit">Edit Profile</a>
+        <a routerLink="/login" routerLinkActive="isActive" (click)="logOut()">
+            <fa-icon [icon]="faArrowRightFromBracket" style="float: left;" [size]="'lg'"></fa-icon>LogOut</a>
+        <a class="edit" routerLink="/edit">
+            <fa-icon [icon]="faPenToSquare" style="float: left;" [size]="'lg'"></fa-icon> Edit Profile</a>
     </div>
 </div>
 <router-outlet></router-outlet>
