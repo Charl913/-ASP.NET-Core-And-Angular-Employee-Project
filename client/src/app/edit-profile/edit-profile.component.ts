@@ -18,12 +18,9 @@ export class EditProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.accountService.currentEmployee$.subscribe({
-      next: val => {
-        if(val){
-          return this.currentEmployee = val;
-        }
-        else {
-          return;
+      next: res => {
+        if(res){
+          this.currentEmployee = res;
         }
       },
       error: error => console.log(error)

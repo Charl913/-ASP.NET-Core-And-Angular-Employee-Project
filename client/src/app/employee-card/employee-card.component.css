@@ -1,3 +1,7 @@
+body {
+    width: 100%;
+}
+
 .card-container {
     display: flex;
     flex-direction: column;
@@ -7,6 +11,8 @@
     border-radius: 10px;
     border: none;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
+    width: 30%;
+    margin-left: 35%;
 }
 
 h1 {
@@ -15,13 +21,13 @@ h1 {
 
 .card {
     padding: 20px;
-    margin: 20px;
+    margin-top: 20px;
     background-color: black;
     color: white;
     border-radius: 10px;
     border: none;
     box-shadow: 10px 10px 30px rgba(0, 0, 1, 1);
-    width: auto;
+    width: 100%;
     height: auto;
 }
 

@@ -44,6 +44,7 @@ export class EmployeeCardComponent implements OnInit {
         }
       }
     })
+
   }
 
   setDetails(id: number) {
@@ -55,8 +56,7 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    const employeeToDelete = JSON.stringify(this.employees.filter(q => q.id === id));
-    alert('are you sure you want to delete? ' + employeeToDelete);
+    this.http.delete<Employee>('https://localhost:5001/api/admin/delete-employee/' + id).subscribe();
   }
 
   addAdmin(id: number) {

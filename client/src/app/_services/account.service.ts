@@ -40,7 +40,6 @@ export class AccountService {
 
   logout() {
     localStorage.removeItem('employee');
-    localStorage.removeItem('employees');
     localStorage.removeItem('project');
     this.currentEmployeeSource.next(null);
   }
