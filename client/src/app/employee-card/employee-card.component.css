@@ -21,7 +21,7 @@ h1 {
     border-radius: 10px;
     border: none;
     box-shadow: 10px 10px 30px rgba(0, 0, 1, 1);
-    width: 350px;
+    width: auto;
     height: auto;
 }
 
@@ -34,15 +34,16 @@ h1 {
     border-radius: 20px;
     border: none;
     padding: 6px;
+    background-color: white;
 }
 
-.btn:hover {
+.card .btn:hover {
     cursor: pointer;
     background-color: orange;
     color: black;
 }
 
-.iContainer button{
+.icon-container button{
     background-color: red;
     border: none;
     color: white;

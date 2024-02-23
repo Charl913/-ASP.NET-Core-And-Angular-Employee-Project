@@ -66,7 +66,6 @@ namespace API.Controllers
                 }
             }
 
-            // return employee;
             return new EmployeeDTO
             {
                 Id = employee.Id,

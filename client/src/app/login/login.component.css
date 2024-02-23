@@ -1,10 +1,10 @@
 .card-container {
-    padding: 20px;
+    padding: 0px;
     background-color: orange;
     color: black;
     text-align: center;
     border-radius: 10px;
-    border: none;
+    border: 1px solid orange;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
 }
 
@@ -12,9 +12,14 @@ input {
     text-align: center;
     margin-top: 20px;
     padding: 20px;
-    width: 70%;
+    width: 65%;
     border-radius: 20px;
     border: none;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 label {
@@ -38,11 +43,11 @@ button:hover {
     color: black;
 }
 .card{
-    padding: 20px;
+    padding: 20px 0px;
     margin-top: 20px;
     background-color: black;
     color: white;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     border: none;
     box-shadow: 10px 10px 30px rgba(0, 0, 1, 1);
 }

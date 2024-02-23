@@ -11,7 +11,7 @@
         {{employee.jobTitle}} <br>
         <button class="btn" routerLink="detail" (click)="setDetails(employee.id)">View Details</button>
         <button class="btn" routerLink="projects" (click)="setProjects(employee.id)">View Projects</button>
-        <div class="iContainer" style="text-align: center;" *ngIf="currentEmployee.isAdmin">
+        <div class="icon-container" style="text-align: center;" *ngIf="currentEmployee.isAdmin">
             <button (click)="deleteEmployee(employee.id)" *ngIf="employee.id != currentEmployee.id">
                 <fa-icon [icon]="faTrash" [size]="'sm'"></fa-icon></button>
             <button style="background-color: blue; margin-left: 10px;" (click)="addAdmin(employee.id)"
