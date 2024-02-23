@@ -11,7 +11,7 @@
         <div class="dropdown-content">
             <a routerLink="/login" routerLinkActive="isActive" (click)="logOut()">
                 <fa-icon [icon]="faArrowRightFromBracket" style="float: left;" [size]="'lg'"></fa-icon>LogOut</a>
-            <a class="edit" routerLink="/edit">
+            <a routerLink="/edit" routerLinkActive="isActive" class="edit" routerLink="/edit">
                 <fa-icon [icon]="faPenToSquare" style="float: left;" [size]="'lg'"></fa-icon> Edit Profile</a>
         </div>
     </div>

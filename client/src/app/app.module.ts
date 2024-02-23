@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectDetailComponent } from './employee-card/projects/project-detail/project-detail.component';
 import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
 import { ToastrModule } from 'ngx-toastr';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
     EmployeeDetailComponent,
     ProjectsComponent,
     ProjectDetailComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

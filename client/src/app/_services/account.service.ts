@@ -28,9 +28,6 @@ export class AccountService {
   register(value: any) {
     return this.http.post<Employee>(this.baseUrl + 'account/register', value).pipe(
       map(employee => {
-        // if(employee){
-        //   this.setCurrentUser(employee);
-        // }
         return employee;
       })
     );

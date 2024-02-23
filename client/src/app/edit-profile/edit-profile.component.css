@@ -1,0 +1,15 @@
+.container {
+    background-color: orange;
+    padding: 0px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    float: right;
+    border-radius: 10px;
+    border: none;
+    margin-right: 0px;
+}

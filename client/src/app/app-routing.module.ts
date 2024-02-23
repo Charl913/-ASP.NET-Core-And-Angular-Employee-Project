@@ -9,6 +9,7 @@ import { ProjectsComponent } from './employee-card/projects/projects.component';
 import { ProjectDetailComponent } from './employee-card/projects/project-detail/project-detail.component';
 import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterEmployeeComponent
+  },
+  {
+    path: 'edit',
+    component: EditProfileComponent
   },
   {
     path: '**',
