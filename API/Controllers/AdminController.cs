@@ -29,5 +29,24 @@ namespace API.Controllers
 
             return Ok();
         }
+
+        [HttpPut("make-admin/{id}")]
+        public async Task<ActionResult<EmployeeDTO>> MakeAdmin(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+
+            if (employee == null)
+            {
+                return BadRequest("Didn't find");
+            }
+
+            employee.IsAdmin = true;
+
+            _context.Employees.Update(employee);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }

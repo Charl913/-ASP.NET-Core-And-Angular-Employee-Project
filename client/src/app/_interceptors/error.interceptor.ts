@@ -31,12 +31,12 @@ export class ErrorInterceptor implements HttpInterceptor {
                 throw modelStateErrors.flat();
               }
               else {
-                this.toastr.error(error.error, error.status.toString(), {positionClass: 'toast-bottom-left'})
+                this.toastr.error(error.error, error.status.toString(), { positionClass: 'toast-bottom-left' })
               }
               break;
 
             case 401:
-              this.toastr.error('Unauthorized', error.status.toString(), {positionClass: 'toast-bottom-left'});
+              this.toastr.error('Unauthorized', error.status.toString(), { positionClass: 'toast-bottom-left' });
               break;
 
             case 404:
@@ -49,7 +49,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               break;
 
             default:
-              this.toastr.error('Something unexpected went wrong', 'Error', {positionClass: 'toast-bottom-left'});
+              this.toastr.error('Something unexpected went wrong', 'Error', { positionClass: 'toast-bottom-left' });
               console.log(error);
               break;
           }

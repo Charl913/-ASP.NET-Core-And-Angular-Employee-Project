@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from '../_services/account.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-employee-card',
@@ -60,7 +61,6 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   addAdmin(id: number) {
-    const employeeToMakeAdmin = JSON.stringify(this.employees.filter(q => q.id === id));
-    alert('are you sure you want to make admin? ' + employeeToMakeAdmin);
+    return this.http.put<Employee>('https://localhost:5001/api/admin/make-admin/' + id, id).subscribe();
   }
 }
