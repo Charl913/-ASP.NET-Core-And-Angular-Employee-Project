@@ -1,0 +1,11 @@
+.content {
+    text-align: end;
+}
+table, th, td{
+    padding: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 20px;
+}

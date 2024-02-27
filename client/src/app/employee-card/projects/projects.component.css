@@ -1,3 +1,15 @@
+.img-wrapper {
+  width: 100%;
+}
+
+img {
+  margin-left: 45%;
+  margin-bottom: 5%;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
 .card {
   background-color: rgb(88, 86, 86);
   padding: 20px;

@@ -1,5 +1,4 @@
 using API.Data;
-using API.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -14,7 +13,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("delete-employee/{id}")]
-        public async Task<ActionResult<EmployeeDTO>> DeleteEmployee(int id)
+        public async Task<IActionResult> DeleteEmployee(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
 
@@ -31,7 +30,7 @@ namespace API.Controllers
         }
 
         [HttpPut("make-admin/{id}")]
-        public async Task<ActionResult<EmployeeDTO>> MakeAdmin(int id)
+        public async Task<IActionResult> MakeAdmin(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
 

@@ -1,6 +1,9 @@
 <div class="card-container">
     <h1>{{title}}</h1>
     <div class="card" *ngFor="let employee of employees">
+        <div class="img-wrapper">
+            <img src="{{'./assets/images/user.png'}}">
+        </div>
         Employee ID:
         {{employee.id}} <br>
         <hr>

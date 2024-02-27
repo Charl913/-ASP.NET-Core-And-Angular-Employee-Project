@@ -15,6 +15,17 @@ body {
     margin-left: 35%;
 }
 
+.img-wrapper {
+    width: 100%;
+}
+
+img {
+    margin-left: 40%;
+    height: 70px;
+    width: 70px;
+    border-radius: 40px;
+}
+
 h1 {
     text-align: center;
 }

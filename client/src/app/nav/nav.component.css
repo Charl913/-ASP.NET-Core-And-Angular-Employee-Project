@@ -18,12 +18,24 @@
   top: 0%;
 }
 
+li {
+  display: inline;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
 .navbar {
   float: left;
   overflow: hidden;
   top: 0%;
   margin-bottom: 0;
   padding: 0;
+  width: auto;
 }
 
 .dropbtn {

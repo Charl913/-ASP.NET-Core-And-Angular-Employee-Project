@@ -10,6 +10,7 @@ import { ProjectDetailComponent } from './employee-card/projects/project-detail/
 import { AddProjectComponent } from './employee-card/projects/add-project/add-project.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EventsComponent } from './events/events.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
       {path: 'projects/project-detail', component: ProjectDetailComponent},
       {path: 'projects/add-project', component: AddProjectComponent}
     ]
+  },
+  {
+    path: 'events',
+    component: EventsComponent
   },
   {
     path: 'register',

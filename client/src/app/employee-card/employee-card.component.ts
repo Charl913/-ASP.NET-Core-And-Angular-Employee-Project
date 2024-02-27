@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from '../_services/account.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-employee-card',
@@ -61,6 +60,6 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   addAdmin(id: number) {
-    return this.http.put<Employee>('https://localhost:5001/api/admin/make-admin/' + id, id).subscribe();
+    this.http.put<Employee>('https://localhost:5001/api/admin/make-admin/' + id, id).subscribe();
   }
 }

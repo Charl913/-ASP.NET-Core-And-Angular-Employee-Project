@@ -19,6 +19,7 @@ import { AddProjectComponent } from './employee-card/projects/add-project/add-pr
 import { ToastrModule } from 'ngx-toastr';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     ProjectsComponent,
     ProjectDetailComponent,
     AddProjectComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

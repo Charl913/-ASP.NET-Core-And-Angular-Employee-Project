@@ -1,0 +1,13 @@
+<h1 style="color: white;">Calander<br>{{currentDate}}/{{currentMonth + 1}}/{{currentYear}}</h1>
+<table>
+    <tbody>
+        <tr *ngFor="let row of rows">
+            <td class="content" *ngFor="let date of row">
+                <button [ngStyle]="{'backgroundColor': isCurrentDate(date) ? 'cyan' : 'white'}">
+                    {{date | date:'dd'}}</button>
+            </td>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+</table>

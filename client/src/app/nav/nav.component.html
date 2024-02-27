@@ -1,10 +1,24 @@
 <div class="nav-container">
     <div class="navbar">
-        <a routerLink="/employees" routerLinkActive="isActive"
-            *ngIf="accountService.currentEmployee$ | async">Employees</a>
-        <a routerLink="/register" routerLinkActive="isActive"
-            *ngIf="(this.currentEmployee.isAdmin) && (accountService.currentEmployee$ | async)">Register Employee</a>
-        <a routerLink="/login" routerLinkActive="isActive" *ngIf="!(accountService.currentEmployee$ | async)">LogIn</a>
+        <ul>
+            <li>
+                <a routerLink="/employees" routerLinkActive="isActive"
+                    *ngIf="accountService.currentEmployee$ | async">Employees</a>
+            </li>
+            <li>
+                <a routerLink="/events" routerLinkActive="isActive"
+                    *ngIf="accountService.currentEmployee$ | async">Events</a>
+            </li>
+            <li>
+                <a routerLink="/register" routerLinkActive="isActive"
+                    *ngIf="(this.currentEmployee.isAdmin) && (accountService.currentEmployee$ | async)">
+                    Register Employee</a>
+            </li>
+            <li>
+                <a routerLink="/login" routerLinkActive="isActive"
+                    *ngIf="!(accountService.currentEmployee$ | async)">LogIn</a>
+            </li>
+        </ul>
     </div>
     <div class="dropdown" *ngIf="accountService.currentEmployee$ | async">
         <button class="dropbtn">Welcome {{this.currentEmployee.employeeName}} <i class="arrow down"></i></button>
