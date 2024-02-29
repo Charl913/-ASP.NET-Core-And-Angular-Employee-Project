@@ -21,6 +21,12 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { EventsComponent } from './events/events.component';
 import { PasswordStrengthDirective } from './_directives/password-strength.directive';
+import { CalanderComponent } from './events/calander/calander.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { UpcommingEventsComponent } from './events/upcomming-events/upcomming-events.component';
+import { AddEventsComponent } from './events/add-event/add-event.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,10 @@ import { PasswordStrengthDirective } from './_directives/password-strength.direc
     AddProjectComponent,
     EditProfileComponent,
     EventsComponent,
-    PasswordStrengthDirective
+    PasswordStrengthDirective,
+    CalanderComponent,
+    UpcommingEventsComponent,
+    AddEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +57,9 @@ import { PasswordStrengthDirective } from './_directives/password-strength.direc
     FontAwesomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    TooltipModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]

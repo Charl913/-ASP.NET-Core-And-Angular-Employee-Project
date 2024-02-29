@@ -1,0 +1,7 @@
+<div class="card-container">
+    <div class="card" *ngFor="let event of events">
+        {{event.name}}
+        <br>
+        {{event.time | date: 'dd/MM/yy'}}
+    </div>
+</div>

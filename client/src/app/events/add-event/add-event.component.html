@@ -1,0 +1,17 @@
+<div class="card-container">
+    <div class="card">
+        <form [formGroup]="form">
+            <input type="text" placeholder="Event Title" formControlName="eventTitle">
+            <br>
+            <input type="number" placeholder="Employee ID" formControlName="employeeId">
+            <br>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Event Description" formControlName="eventDescription">
+            </textarea>
+            <br>
+            <input type="text" placeholder="Datepicker" bsDatepicker formControlName="datePicker"
+                [bsConfig]="{ adaptivePosition: true }">
+            <br>
+            <button (click)="addEvent()">Submit</button>
+        </form>
+    </div>
+</div>

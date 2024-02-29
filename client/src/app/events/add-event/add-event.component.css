@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    
+}
+
+.card {
+    margin-top: 10px;
+    background-color: black;
+    width: 50%;
+    border-radius: 10px;
+}
+
+form {
+    margin-top: 10px;
+    text-align: center;
+}
+
+input {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 40%;
+}
+
+textarea {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,12 @@
+.card-container {
+    width: 100%;
+    background-color: orange;
+}
+
+.card {
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    margin-top: 10px;
+}
