@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { EventsComponent } from './events/events.component';
+import { PasswordStrengthDirective } from './_directives/password-strength.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EventsComponent } from './events/events.component';
     ProjectDetailComponent,
     AddProjectComponent,
     EditProfileComponent,
-    EventsComponent
+    EventsComponent,
+    PasswordStrengthDirective
   ],
   imports: [
     BrowserModule,

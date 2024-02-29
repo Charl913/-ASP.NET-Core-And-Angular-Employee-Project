@@ -15,6 +15,14 @@ h1 {
     margin-bottom: 20px;
 }
 
+.job-title {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    width: 56%;
+    text-align: center;
+}
+
 input {
     margin-top: 20px;
     padding: 20px;

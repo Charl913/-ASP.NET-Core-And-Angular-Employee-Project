@@ -3,8 +3,15 @@
     <div class="card">
         <form [formGroup]="form" (ngSubmit)="register()">
             <input placeholder="Employee Name" formControlName="employeeName">
-            <input placeholder="Job Title" formControlName="jobTitle">
-            <input type="password" placeholder="Password" formControlName="password">
+            <br>
+            <select class="job-title" formControlName="jobTitle">
+                <option value="" disabled>Choose A Job Title</option>
+                <option *ngFor="let title of jobTitles" [ngValue]="title.name">
+                    {{title.name}}
+                </option>
+            </select>
+            <br>
+            <input type="password" passwordStrength placeholder="Password" formControlName="password">
             <br>
             <button *ngIf="form.valid; else invalidForm" type="submit">Register</button>
             <ng-template #invalidForm>

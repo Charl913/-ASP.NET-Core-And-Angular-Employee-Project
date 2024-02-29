@@ -11,15 +11,25 @@ import { AccountService } from '../_services/account.service';
 export class RegisterEmployeeComponent {
   baseUrl = 'https://localhost:5001/api/';
 
+  jobTitles = [
+    { name: 'Administrator' },
+    { name: 'Mobile Application Developer' },
+    { name: 'Web Application Developer' }
+  ];
+
   form = this.fb.group({
     employeeName: ['', {
       validators: [
         Validators.required
-      ],
-      updateOn: 'blur',
+      ]
     }],
 
-    jobTitle: ['', Validators.required],
+    jobTitle: ['', {
+      validators: [
+        Validators.required
+      ],
+      updateOn: 'change'
+    }],
 
     password: ['', {
       validators: [
@@ -31,8 +41,8 @@ export class RegisterEmployeeComponent {
 
   constructor(private fb: FormBuilder, private router: Router, private accountService: AccountService) {
   }
-  register(){
-    const value = {...this.form.value}
+  register() {
+    const value = { ...this.form.value }
     this.accountService.register(value).subscribe({
       next: _ => {
         this.router.navigateByUrl('/employees')
