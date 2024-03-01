@@ -1,4 +1,6 @@
 using API.Data;
+using API.DTOs;
+using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -46,6 +48,25 @@ namespace API.Controllers
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpPost("add-event")]
+        public async Task<ActionResult<ApplicationUserEvent>> AddEvent(EventDTO eventDTO)
+        {
+
+            var userEvent = new ApplicationUserEvent
+            {
+                Id = eventDTO.EmployeeId,
+                EventTitle = eventDTO.EventTitle,
+                EventDescription = eventDTO.EventDescription,
+                DatePicked = eventDTO.DatePicked
+            };
+
+            _context.Events.Add(userEvent);
+
+            await _context.SaveChangesAsync();
+
+            return userEvent;
         }
     }
 }

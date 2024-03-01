@@ -33,6 +33,14 @@ export class AccountService {
     );
   }
 
+  addEvent(value: any) {
+    return this.http.post<Event>('https://localhost:5001/api/admin/add-event', value).pipe(
+      map(userEvent => {
+        return userEvent;
+      })
+    );
+  }
+
   setCurrentUser(employee: Employee) {
     this.currentEmployeeSource.next(employee);
     localStorage.setItem('employee', JSON.stringify(employee));

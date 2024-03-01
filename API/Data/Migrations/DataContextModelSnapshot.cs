@@ -52,11 +52,11 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.ApplicationUserEvent", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EventId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EventId"));
 
                     b.Property<DateTime>("DatePicked")
                         .HasColumnType("datetime2");
@@ -67,7 +67,10 @@ namespace API.Data.Migrations
                     b.Property<string>("EventTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventId");
 
                     b.ToTable("Events");
                 });
