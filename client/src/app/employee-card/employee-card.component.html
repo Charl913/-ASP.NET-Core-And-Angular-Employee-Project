@@ -15,11 +15,40 @@
         <button class="btn" routerLink="detail" (click)="setDetails(employee.id)">View Details</button>
         <button class="btn" routerLink="projects" (click)="setProjects(employee.id)">View Projects</button>
         <div class="icon-container" style="text-align: center;" *ngIf="currentEmployee.isAdmin">
-            <button (click)="deleteEmployee(employee.id)" *ngIf="employee.id != currentEmployee.id">
+            <button (click)="openModal(templateDelete)" (click)="deleteEmployee(employee.id)"
+                *ngIf="employee.id != currentEmployee.id">
                 <fa-icon [icon]="faTrash" [size]="'sm'"></fa-icon></button>
-            <button style="background-color: blue; margin-left: 10px;" (click)="addAdmin(employee.id)"
-                *ngIf="!employee.isAdmin">
+            <ng-template #templateDelete>
+                <div class="modal-header" style="background-color: rgb(201, 84, 84); text-align: center;">
+                    <h4 class="modal-title pull-left">Deleted</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close"
+                        (click)="modalRef?.hide()">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    You deleted {{employee.employeeName | titlecase}}({{employee.jobTitle}})!
+                    <br>
+                    Refresh the page to view changes.
+                </div>
+            </ng-template>
+            <button style="background-color: blue; margin-left: 10px;" (click)="openModal(templateAdmin)"
+                (click)="addAdmin(employee.id)" *ngIf="!employee.isAdmin">
                 <fa-icon [icon]="faUserTie" [size]="'sm'"></fa-icon></button>
+            <ng-template #templateAdmin>
+                <div class="modal-header" style="background-color: blue; text-align: center; color: white;">
+                    <h4 class="modal-title pull-left">Admin</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close"
+                        (click)="modalRef?.hide()" style="color: white;">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    You made {{employee.employeeName | titlecase}}({{employee.jobTitle}}) an administrator!
+                    <br>
+                    Refresh the page to view changes.
+                </div>
+            </ng-template>
         </div>
     </div>
 </div>

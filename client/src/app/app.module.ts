@@ -27,6 +27,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UpcommingEventsComponent } from './events/upcomming-events/upcomming-events.component';
 import { AddEventsComponent } from './events/add-event/add-event.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     ToastrModule.forRoot(),
     TooltipModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]

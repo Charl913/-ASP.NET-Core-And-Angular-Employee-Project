@@ -15,7 +15,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUserEvent>>> GetEvent()
+        public async Task<ActionResult<IEnumerable<ApplicationUserEvent>>> GetEvents()
         {
             var employeeEvents = await _context.Events.ToListAsync();
 

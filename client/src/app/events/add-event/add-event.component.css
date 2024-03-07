@@ -1,13 +1,22 @@
+* {
+    border: none;
+}
+
 .container {
     width: 100%;
     
 }
 
+hr {
+    border: 1px solid black;
+}
+
 .card {
     margin-top: 10px;
-    background-color: black;
+    background-color: orange;
     width: 50%;
     border-radius: 10px;
+    box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
 }
 
 form {
@@ -21,6 +30,7 @@ input {
     border-radius: 10px;
     text-align: center;
     width: 40%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 1, 1);
 }
 
 textarea {
@@ -28,13 +38,20 @@ textarea {
     padding: 10px;
     border-radius: 10px;
     text-align: left;
+    box-shadow: 10px 10px 10px rgba(0, 0, 1, 1);
 }
 
-button {
+.btn-submit {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
     width: 20%;
     margin-top: 10px;
     margin-bottom: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 1, 1);
+}
+
+.btn-submit:hover {
+    background-color: orange;
+    color: white;
 }

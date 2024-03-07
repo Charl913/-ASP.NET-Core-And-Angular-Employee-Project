@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Project } from '../../_models/project';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from 'src/app/_models/employee';
@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from 'src/app/_services/employee.service';
 import { faFloppyDisk, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from 'src/app/_services/account.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-projects',
@@ -24,10 +25,11 @@ export class ProjectsComponent implements OnInit {
   faSquarePlus = faSquarePlus;
   faFloppyDisk = faFloppyDisk;
   currentEmployee: Employee = {} as Employee
+  modalRef?: BsModalRef;
 
   constructor(private accountService: AccountService, private employeeService: EmployeeService,
     private router: Router, private route: ActivatedRoute,
-    private http: HttpClient, private projectService: ProjectService) {
+    private http: HttpClient, private projectService: ProjectService, private modalService: BsModalService) {
     this.route.queryParams.subscribe(params => {
       this.employeeId = params['data']
     })
@@ -61,6 +63,10 @@ export class ProjectsComponent implements OnInit {
     })
   }
 
+  openModal(template: TemplateRef<void>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
   drop(event: CdkDragDrop<Project[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -88,7 +94,6 @@ export class ProjectsComponent implements OnInit {
   save() {
     this.projectService.saveProjectState(this.Active).subscribe();
     this.projectService.saveProjectState(this.Finished).subscribe();
-    alert('Project Saved');
   }
 
   projectActive() {

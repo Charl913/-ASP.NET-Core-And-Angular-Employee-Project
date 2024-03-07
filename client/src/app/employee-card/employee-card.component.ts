@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Employee } from '../_models/employee';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from '../_services/account.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-employee-card',
@@ -12,8 +13,10 @@ import { AccountService } from '../_services/account.service';
 })
 export class EmployeeCardComponent implements OnInit {
   faTrash = faTrash;
-  faUserTie = faUserTie
 
+  faUserTie = faUserTie;
+
+  modalRef?: BsModalRef;
 
   title = 'Employees';
 
@@ -23,7 +26,8 @@ export class EmployeeCardComponent implements OnInit {
 
   currentEmployee: Employee = {} as Employee;
 
-  constructor(private http: HttpClient, private router: Router, private accountService: AccountService) {
+  constructor(private http: HttpClient, private router: Router, private accountService: AccountService,
+    private modalService: BsModalService) {
 
   }
 
@@ -45,6 +49,10 @@ export class EmployeeCardComponent implements OnInit {
       }
     })
 
+  }
+
+  openModal(template: TemplateRef<void>) {
+    this.modalRef = this.modalService.show(template);
   }
 
   setDetails(id: number) {

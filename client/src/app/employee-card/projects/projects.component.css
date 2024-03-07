@@ -86,7 +86,7 @@ button {
   padding: 15px;
 }
 
-.btn {
+.btn-one {
   font-size: large;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
@@ -99,13 +99,13 @@ button {
   color: white;
 }
 
-.btn:hover {
+.btn-one:hover {
   cursor: pointer;
   background-color: orange;
   color: black;
 }
 
-button:hover {
+.btn-one:hover, .btn-view:hover {
   cursor: pointer;
   background-color: orange;
   color: black;
