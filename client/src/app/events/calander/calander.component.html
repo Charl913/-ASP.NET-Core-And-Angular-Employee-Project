@@ -4,7 +4,8 @@
         <tr *ngFor="let row of rows">
             <td class="content" *ngFor="let date of row">
                 <button [ngStyle]="{'backgroundColor': isCurrentDate(date) ? 'cyan' : 'white'}">
-                    {{date | date:'dd'}}</button>
+                    {{date | date:'dd'}}
+                </button>
             </td>
         </tr>
         <tr>

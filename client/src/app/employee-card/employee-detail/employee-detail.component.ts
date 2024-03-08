@@ -14,7 +14,8 @@ export class EmployeeDetailComponent {
   baseUrl = 'https://localhost:5001/api/employees/'
 
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute,
+    private http: HttpClient) {
   }
 
   ngOnInit() {

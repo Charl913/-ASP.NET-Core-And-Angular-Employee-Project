@@ -5,7 +5,9 @@
             <input #employeeName placeholder="Employee Name" formControlName="employeeName">
             <input type="password" placeholder="Password" formControlName="password">
             <br>
-            <button type="submit" *ngIf="form.valid; else invalidForm">Log In</button>
+            <button type="submit" *ngIf="form.valid; else invalidForm">
+                Log In
+            </button>
             <ng-template #invalidForm>
                 <h2>Unable to log in just yet</h2>
                 <p>Please provide all the required information</p>

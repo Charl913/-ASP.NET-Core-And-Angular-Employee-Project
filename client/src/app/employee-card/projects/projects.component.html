@@ -13,7 +13,9 @@
         <div class="example-box" *ngFor="let active of Active; index as i" cdkDrag>
           Project Id: {{active.projectId}} <br>
           Project Title: {{active.projectTitle}}
-          <button routerLink="project-detail" (click)="viewProjectActive(i)">View Project</button>
+          <button routerLink="project-detail" (click)="viewProjectActive(i)">
+            View Project
+          </button>
         </div>
       </div>
     </div>
@@ -23,7 +25,9 @@
         <div class="example-box" *ngFor="let finished of Finished; index as i" cdkDrag>
           Project Id: {{finished.projectId}} <br>
           Project Title: {{finished.projectTitle}}
-          <button class="btn-view" routerLink="project-detail" (click)="viewProjectFinished(i)">View Project</button>
+          <button class="btn-view" routerLink="project-detail" (click)="viewProjectFinished(i)">
+            View Project
+          </button>
         </div>
       </div>
     </div>
@@ -32,11 +36,13 @@
         <button class="btn-one" (click)="addProject()" routerLink="add-project"><fa-icon [icon]="faSquarePlus"
             [size]="'2x'"></fa-icon></button>
         <button style="margin-left: 10px;" class="btn-one" (click)="openModal(template)" (click)="save()"><fa-icon
-            [icon]="faFloppyDisk" [size]="'2x'"></fa-icon></button>
+            [icon]="faFloppyDisk" [size]="'2x'"></fa-icon>
+        </button>
         <ng-template #template>
           <div class="modal-header" style="background-color: greenyellow; text-align: center;">
             <h4 class="modal-title pull-left">Save</h4>
-            <button type="button" class="btn-close close pull-right" style="width: 5%;" aria-label="Close" (click)="modalRef?.hide()">
+            <button type="button" class="btn-close close pull-right" style="width: 5%;" aria-label="Close"
+              (click)="modalRef?.hide()">
               <span aria-hidden="true" class="visually-hidden">&times;</span>
             </button>
           </div>

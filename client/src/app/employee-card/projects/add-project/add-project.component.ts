@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faFloppyDisk, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
-import { Employee } from 'src/app/_models/employee';
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { ProjectService } from 'src/app/_services/project.service';
 
 @Component({
@@ -17,8 +16,11 @@ export class AddProjectComponent implements OnInit {
   employeeId: any;
   faSquarePlus = faSquarePlus;
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder,
-    private projectService: ProjectService, private router: Router, private http: HttpClient) {
+  constructor(private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private projectService: ProjectService,
+    private router: Router,
+    private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
       this.employeeId = params['data']
     })

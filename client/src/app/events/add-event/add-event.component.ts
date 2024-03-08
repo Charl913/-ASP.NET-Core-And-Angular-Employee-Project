@@ -22,12 +22,15 @@ export class AddEventsComponent {
     datePicked: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private accountService: AccountService, private modalService: BsModalService) {
+  constructor(private fb: FormBuilder,
+    private http: HttpClient,
+    private accountService: AccountService,
+    private modalService: BsModalService) {
 
   }
 
   openModal(template: TemplateRef<void>) {
-    if(this.form.valid){
+    if (this.form.valid) {
       this.modalRef = this.modalService.show(template);
     }
   }

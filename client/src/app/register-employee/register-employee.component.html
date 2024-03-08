@@ -5,7 +5,9 @@
             <input placeholder="Employee Name" formControlName="employeeName">
             <br>
             <select class="job-title" formControlName="jobTitle">
-                <option value="" disabled>Choose A Job Title</option>
+                <option value="" disabled>
+                    Choose A Job Title
+                </option>
                 <option *ngFor="let title of jobTitles" [ngValue]="title.name">
                     {{title.name}}
                 </option>
@@ -13,11 +15,15 @@
             <br>
             <input type="password" passwordStrength placeholder="Password" formControlName="password">
             <br>
-            <button *ngIf="form.valid; else invalidForm" type="submit">Register</button>
+            <button *ngIf="form.valid; else invalidForm" type="submit">
+                Register
+            </button>
             <ng-template #invalidForm>
                 <h2>Unable to register just yet</h2>
                 <p>Please provide all the required information</p>
-                <p *ngIf="(!password.valid) && (password.value)" style="color: red;">*invalid password</p>
+                <p *ngIf="(!password.valid) && (password.value)" style="color: red;">
+                    *invalid password
+                </p>
             </ng-template>
         </form>
     </div>

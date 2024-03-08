@@ -14,7 +14,9 @@ export class LoginComponent {
     password: ['Password1', Validators.required]
   })
 
-  constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) {
+  constructor(private fb: FormBuilder,
+    private accountService: AccountService,
+    private router: Router) {
   }
 
   login() {

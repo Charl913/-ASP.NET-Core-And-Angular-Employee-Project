@@ -27,9 +27,13 @@ export class ProjectsComponent implements OnInit {
   currentEmployee: Employee = {} as Employee
   modalRef?: BsModalRef;
 
-  constructor(private accountService: AccountService, private employeeService: EmployeeService,
-    private router: Router, private route: ActivatedRoute,
-    private http: HttpClient, private projectService: ProjectService, private modalService: BsModalService) {
+  constructor(private accountService: AccountService,
+    private employeeService: EmployeeService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private projectService: ProjectService,
+    private modalService: BsModalService) {
     this.route.queryParams.subscribe(params => {
       this.employeeId = params['data']
     })

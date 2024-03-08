@@ -39,7 +39,9 @@ export class RegisterEmployeeComponent {
     }]
   });
 
-  constructor(private fb: FormBuilder, private router: Router, private accountService: AccountService) {
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private accountService: AccountService) {
   }
   register() {
     const value = { ...this.form.value }

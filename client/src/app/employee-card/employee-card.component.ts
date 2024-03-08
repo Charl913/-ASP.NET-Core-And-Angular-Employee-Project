@@ -26,7 +26,9 @@ export class EmployeeCardComponent implements OnInit {
 
   currentEmployee: Employee = {} as Employee;
 
-  constructor(private http: HttpClient, private router: Router, private accountService: AccountService,
+  constructor(private http: HttpClient,
+    private router: Router,
+    private accountService: AccountService,
     private modalService: BsModalService) {
 
   }
