@@ -1,11 +1,48 @@
 .content {
     text-align: end;
 }
-table, th, td{
+
+table,
+th,
+td {
     padding: 5px;
 }
 
 button {
     width: 100%;
     padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.color-helper-column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.color-helper-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.current-date-icon {
+    background-color: cyan;
+    width: 20px;
+    height: 20px;
+}
+
+.upcomming-event-icon {
+    background-color: greenyellow;
+    width: 20px;
+    height: 20px;
+}
+
+p {
+    float: right;
+    color: white;
+    margin-left: 5px;
 }

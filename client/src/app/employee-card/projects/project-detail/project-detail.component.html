@@ -1,18 +1,28 @@
 <div class="container">
-    <table>
-        <tr>
-            <th>Project Id:</th>
-            <th>Project Title:</th>
-            <th>Project Requirements:</th>
-            <th>Project Code:</th>
-        </tr>
-        <tr>
-            <td>{{project.projectId}}</td>
-            <td>{{project.projectTitle}}</td>
-            <td>{{project.projectRequirements}}</td>
-            <td>
-                <a href={{project.projectCode}}><fa-icon [icon]="faLink" [size]="'xl'"></fa-icon></a>
-            </td>
-        </tr>
-    </table>
+    <div class="color-helper-column">
+        <div class="color-helper-row">
+            <h1>Title:</h1>
+            <h2>{{project.projectTitle}}</h2>
+        </div>
+        <hr style="color: yellow;">
+        <h1>Requirements:</h1>
+        <h2 style="margin-left: 0%;">{{project.projectRequirements}}</h2>
+        <hr style="color: yellow;">
+        <div class="color-helper-row">
+            <h1>View Code:</h1>
+            <h2><a href="{{project.projectCode}}"><fa-icon [icon]="faLink" style="margin-left: 10px;"></fa-icon></a>
+                View Code
+            </h2>
+        </div>
+        <hr style="color: yellow;">
+        <div class="color-helper-row">
+            <h1>State:</h1>
+            <ng-container *ngIf="project.isActive == true">
+                <h2>Active</h2>
+            </ng-container>
+            <ng-container *ngIf="project.isActive == false">
+                <h2>Finished</h2>
+            </ng-container>
+        </div>
+    </div>
 </div>

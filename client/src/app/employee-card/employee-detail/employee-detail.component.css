@@ -2,6 +2,15 @@
   width: 100%;
 }
 
+h1{
+  color: white;
+}
+
+h2 {
+  color: aquamarine;
+  margin-left: 10px;
+}
+
 img {
   margin-left: 45%;
   margin-bottom: 5%;
@@ -10,21 +19,13 @@ img {
   border-radius: 50px;
 }
 
-table {
-  width: 40%;
-  margin-left: 25%;
+.color-helper-column {
+  margin-left: 40%;
+  display: flex;
+  flex-direction: column;
 }
 
-table,
-th,
-td {
-  border: 1px solid white;
-  box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
-  border-collapse: collapse;
-  padding: 20px;
-}
-
-th,
-td {
-  background-color: orange;
+.color-helper-row {
+  display: flex;
+  flex-direction: row;
 }

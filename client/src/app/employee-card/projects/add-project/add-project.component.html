@@ -3,7 +3,9 @@
     <div class="card">
         <form [formGroup]="form" (ngSubmit)="addProject()">
             <input placeholder="Project Title" formControlName="projectTitle">
-            <input placeholder="Project Requirements" formControlName="projectRequirements">
+            <textarea name="" id="" cols="30" rows="10" placeholder="Project Requirements"
+                formControlName="projectRequirements">
+            </textarea>
             <input placeholder="Project Code" formControlName="projectCode">
             <br>
             <button *ngIf="form.valid; else invalidForm" type="submit"><fa-icon [icon]="faSquarePlus"

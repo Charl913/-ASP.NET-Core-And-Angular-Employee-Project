@@ -1,14 +1,13 @@
 <div class="img-wrapper">
     <img src="{{'./assets/images/user.png'}}">
 </div>
-
-<table>
-    <tr>
-        <th>Employee Name:</th>
-        <th>Job Title:</th>
-    </tr>
-    <tr>
-        <td>{{employee.employeeName}}</td>
-        <td>{{employee.jobTitle}}</td>
-    </tr>
-</table>
+<div class="color-helper-column">
+    <div class="color-helper-row">
+        <h1>Name:</h1>
+        <h2>{{employee.employeeName}}</h2>        
+    </div>
+    <div class="color-helper-row">
+        <h1>Job Title:</h1>
+        <h2>{{employee.jobTitle}}</h2>          
+    </div>
+</div>

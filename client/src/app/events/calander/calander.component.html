@@ -1,14 +1,28 @@
-<h1 style="color: white; margin-top: 10px;">{{displayDate | date: 'dd / MMM / yyyy'}}</h1>
-<table>
-    <tbody>
-        <tr *ngFor="let row of rows">
-            <td class="content" *ngFor="let date of row">
-                <button [ngStyle]="{'backgroundColor': isCurrentDate(date) ? 'cyan' : 'white'}">
-                    {{date | date:'dd'}}
-                </button>
-            </td>
-        </tr>
-        <tr>
-        </tr>
-    </tbody>
-</table>
+<h1 style="color: white; margin-top: 10px; margin-left: 20px;">{{displayDate | date: 'dd / MMM / yyyy'}}</h1>
+<div class="container">
+    <table>
+        <tbody>
+            <tr *ngFor="let row of rows">
+                <td class="content" *ngFor="let date of row">
+                    <button [ngStyle]="{'backgroundColor': isCurrentDate(date) ? 'cyan' : 'white'}">
+                        {{date | date:'dd'}}
+                    </button>
+                </td>
+            </tr>
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+    <div class="color-helper-column">
+        <div class="color-helper-row">
+            <div class="current-date-icon">
+            </div>
+            <p>Current date</p>
+        </div>
+        <div class="color-helper-row">
+            <div class="upcomming-event-icon">
+            </div>
+            <p>Upcomming Event</p>
+        </div>
+    </div>
+</div>

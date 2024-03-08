@@ -13,7 +13,7 @@
         <div class="example-box" *ngFor="let active of Active; index as i" cdkDrag>
           Project Id: {{active.projectId}} <br>
           Project Title: {{active.projectTitle}}
-          <button routerLink="project-detail" (click)="viewProjectActive(i)">
+          <button class="btn-view" routerLink="project-detail" (click)="viewProjectActive(i)">
             View Project
           </button>
         </div>
