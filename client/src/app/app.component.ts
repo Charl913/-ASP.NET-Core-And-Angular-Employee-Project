@@ -9,9 +9,7 @@ import { Employee } from './_models/employee';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private accountService: AccountService) {
-
-  }
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
     this.setCurrentUser()

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-calander',
   templateUrl: './calander.component.html',
   styleUrls: ['./calander.component.css']
 })
-export class CalanderComponent {
+export class CalanderComponent implements OnInit {
   displayDate = Date.now();
   currentMonth = new Date().getMonth();
   currentYear = new Date().getFullYear();
@@ -13,7 +13,9 @@ export class CalanderComponent {
   month: Date[] = [];
   rows: Date[][] = [];
 
-  constructor() {
+  constructor() { }
+
+  ngOnInit(): void {
     this.month = this.getDaysInMonth(this.currentMonth, this.currentYear);
     this.rows = this.getRows(this.month);
   }

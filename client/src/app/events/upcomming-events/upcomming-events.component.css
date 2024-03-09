@@ -1,12 +1,23 @@
 .card-container {
     width: 100%;
-    background-color: orange;
 }
 
 .card {
-    width: 100%;
-    background-color: black;
-    padding: 10px;
-    color: white;
+    width: 25%;
+    margin-left: 35%;
+    background-color: greenyellow;
+    color: black;
     margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    position:static;
+}
+
+.btn-view-event {
+    margin-bottom: 0px;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
 }

@@ -12,13 +12,11 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class EditProfileComponent implements OnInit {
   faPenToSquare = faPenToSquare;
   faSquarePlus = faSquarePlus;
-  currentEmployee: Employee = {} as Employee
+  currentEmployee: Employee = {} as Employee;
   modalRef?: BsModalRef;
 
   constructor(private accountService: AccountService,
-    private modalService: BsModalService) {
-
-  }
+    private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.accountService.currentEmployee$.subscribe({
@@ -36,6 +34,10 @@ export class EditProfileComponent implements OnInit {
   }
 
   saveEducation() {
+    this.modalService.hide();
+  }
+
+  saveExperience() {
     this.modalService.hide();
   }
 }

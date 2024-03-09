@@ -29,9 +29,7 @@ export class EmployeeCardComponent implements OnInit {
   constructor(private http: HttpClient,
     private router: Router,
     private accountService: AccountService,
-    private modalService: BsModalService) {
-
-  }
+    private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.http.get(this.baseUrl).subscribe({

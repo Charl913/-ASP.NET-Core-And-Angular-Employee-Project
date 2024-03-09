@@ -33,10 +33,12 @@ export class ProjectsComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient,
     private projectService: ProjectService,
-    private modalService: BsModalService) {
+    private modalService: BsModalService) { }
+
+  ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.employeeId = params['data']
-    })
+    });
 
     this.employeeService.getEmployeeDetails(this.employeeId).subscribe({
       next: res => {
@@ -55,16 +57,14 @@ export class ProjectsComponent implements OnInit {
       },
       error: error => console.log(error)
     });
-  }
-
-  ngOnInit(): void {
+    
     this.accountService.currentEmployee$.subscribe({
       next: res => {
         if (res) {
           this.currentEmployee = res;
         }
       }
-    })
+    });
   }
 
   openModal(template: TemplateRef<void>) {

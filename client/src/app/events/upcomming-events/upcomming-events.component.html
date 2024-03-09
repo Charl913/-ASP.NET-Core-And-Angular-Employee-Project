@@ -1,7 +1,25 @@
 <div class="card-container">
     <div class="card" *ngFor="let event of events">
-        {{event.eventTitle}}
-        <br>
-        {{event.datePicked | date: 'dd/MM/yyyy'}}
+        <h3>{{event.eventTitle}}</h3>
+        <hr>
+        <h3>{{event.datePicked | date: 'dd/MM/yyyy'}}</h3>
+        <button class="btn-view-event" (click)="openModal(template)"><fa-icon [icon]="faChevronDown"
+                [size]="'xl'"></fa-icon></button>
+        <ng-template #template>
+            <div class="modal-header" style="background-color: greenyellow; text-align: center;">
+                <h4 class="modal-title pull-left">Event</h4>
+                <button type="button" class="btn-close close pull-right" style="width: 5%;" aria-label="Close"
+                    (click)="modalRef?.hide()">
+                    <span aria-hidden="true" class="visually-hidden">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                {{event.eventTitle}}
+                <hr>
+                {{event.eventDescription}}
+                <hr>
+                {{event.datePicked | date: 'dd/MM/yyyy'}}
+            </div>
+        </ng-template>
     </div>
 </div>

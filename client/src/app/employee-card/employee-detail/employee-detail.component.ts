@@ -15,8 +15,7 @@ export class EmployeeDetailComponent {
 
 
   constructor(private route: ActivatedRoute,
-    private http: HttpClient) {
-  }
+    private http: HttpClient) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {

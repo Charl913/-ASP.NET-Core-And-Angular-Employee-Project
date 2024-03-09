@@ -41,8 +41,7 @@ export class RegisterEmployeeComponent {
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private accountService: AccountService) {
-  }
+    private accountService: AccountService) {}
   register() {
     const value = { ...this.form.value }
     this.accountService.register(value).subscribe({
