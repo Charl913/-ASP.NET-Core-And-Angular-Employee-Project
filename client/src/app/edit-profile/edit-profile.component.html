@@ -26,13 +26,13 @@
     </button>
   </div>
   <div class="modal-body" style="text-align: center;">
-    <form>
-      <input type="text" placeholder="School">
+    <form [formGroup]="education" (ngSubmit)="saveEducation()">
+      <input type="text" placeholder="School" formControlName="school">
       <br>
-      <input type="text" placeholder="Degree">
+      <input type="text" placeholder="Degree" formControlName="degree">
       <br>
       <hr>
-      <button class="btn-save" (click)="saveEducation()">Save</button>
+      <button class="btn-save" type="submit">Save</button>
     </form>
   </div>
 </ng-template>
@@ -46,13 +46,13 @@
     </button>
   </div>
   <div class="modal-body" style="text-align: center;">
-    <form>
-      <input type="text" placeholder="Title">
+    <form [formGroup]="experience" (ngSubmit)="saveExperience()">
+      <input type="text" placeholder="Title" formControlName="title">
       <br>
-      <input type="text" placeholder="Company Name">
+      <input type="text" placeholder="Company Name" formControlName="companyName">
       <br>
       <hr>
-      <button class="btn-save" (click)="saveExperience()">Save</button>
+      <button class="btn-save" type="submit">Save</button>
     </form>
   </div>
 </ng-template>

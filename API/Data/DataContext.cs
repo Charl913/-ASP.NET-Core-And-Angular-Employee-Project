@@ -12,5 +12,7 @@ namespace API.Data
         public DbSet<ApplicationUser> Employees { get; set; }
         public DbSet<ApplicationUserProject> Projects {get; set; }
         public DbSet<ApplicationUserEvent> Events { get; set; }
+        public DbSet<ApplicationUserEducation> Education { get; set; }
+        public DbSet<ApplicationUserExperience> Experience { get; set; }
     }
 }

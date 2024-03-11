@@ -3,6 +3,7 @@ import { Employee } from '../_models/employee';
 import { AccountService } from '../_services/account.service';
 import { faPenToSquare, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-profile',
@@ -15,8 +16,19 @@ export class EditProfileComponent implements OnInit {
   currentEmployee: Employee = {} as Employee;
   modalRef?: BsModalRef;
 
+  education = this.fb.group({
+    school: ['', Validators.required],
+    degree: ['', Validators.required]
+  });
+
+  experience = this.fb.group({
+    title: ['', Validators.required],
+    companyName: ['', Validators.required]
+  });
+
   constructor(private accountService: AccountService,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.accountService.currentEmployee$.subscribe({
@@ -34,10 +46,16 @@ export class EditProfileComponent implements OnInit {
   }
 
   saveEducation() {
+    const values = { ...this.education.value };
+    this.education.controls['school'].setValue('');
+    this.education.controls['degree'].setValue('');
     this.modalService.hide();
   }
 
   saveExperience() {
+    const values = { ...this.experience.value };
+    this.experience.controls['title'].setValue('');
+    this.experience.controls['companyName'].setValue('');
     this.modalService.hide();
   }
 }
