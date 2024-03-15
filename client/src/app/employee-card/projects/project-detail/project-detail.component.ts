@@ -7,11 +7,11 @@ import { Project } from 'src/app/_models/project';
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css']
 })
-export class ProjectDetailComponent implements OnInit{
+export class ProjectDetailComponent implements OnInit {
   project: Project = {} as Project;
   faLink = faLink;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.project = JSON.parse(localStorage.getItem('project')!);

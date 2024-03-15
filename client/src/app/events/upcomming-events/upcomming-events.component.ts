@@ -34,7 +34,6 @@ export class UpcommingEventsComponent implements OnInit {
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.events = data;
-        return data;
       },
       error: err => console.log(err)
     });

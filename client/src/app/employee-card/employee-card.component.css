@@ -70,3 +70,24 @@ h1 {
     margin-top: 10px;
     border-radius: 100%;
 }
+
+.btn-confirm {
+    padding: 10px;
+    float: left;
+    margin-top: 20px;
+    width: 20%;
+    color: white;
+    border: none;
+    background-color: blue;
+}
+
+.btn-cancel {
+    padding: 10px;
+    float: left;
+    margin-top: 20px;
+    width: 20%;
+    margin-left: 2px;
+    background-color: crimson;
+    border: none;
+    color: white;
+}

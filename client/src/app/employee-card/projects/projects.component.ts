@@ -24,7 +24,7 @@ export class ProjectsComponent implements OnInit {
   employee: Employee = {} as Employee;
   faSquarePlus = faSquarePlus;
   faFloppyDisk = faFloppyDisk;
-  currentEmployee: Employee = {} as Employee
+  currentEmployee: Employee = {} as Employee;
   modalRef?: BsModalRef;
 
   constructor(private accountService: AccountService,
@@ -37,12 +37,12 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.employeeId = params['data']
+      this.employeeId = params['data'];
     });
 
     this.employeeService.getEmployeeDetails(this.employeeId).subscribe({
       next: res => {
-        this.employee = JSON.parse(JSON.stringify(res))
+        this.employee = JSON.parse(JSON.stringify(res));
       }
     });
 
@@ -57,7 +57,7 @@ export class ProjectsComponent implements OnInit {
       },
       error: error => console.log(error)
     });
-    
+
     this.accountService.currentEmployee$.subscribe({
       next: res => {
         if (res) {
@@ -101,12 +101,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   projectActive() {
-    this.Active = this.projects.filter(item => item.isActive === true)
+    this.Active = this.projects.filter(item => item.isActive === true);
     return this.Active;
   }
 
   projectFinished() {
-    this.Finished = this.projects.filter(item => item.isActive === false)
+    this.Finished = this.projects.filter(item => item.isActive === false);
     return this.Finished;
   }
 
@@ -133,12 +133,10 @@ export class ProjectsComponent implements OnInit {
       this.projectFinished();
       return this.projects;
     }
-    else {
-      return;
-    }
+    return;
   }
 
   addProject() {
-    this.router.navigate(['employees/projects/add-project'], { queryParams: { data: this.employeeId } })
+    this.router.navigate(['employees/projects/add-project'], { queryParams: { data: this.employeeId } });
   }
 }

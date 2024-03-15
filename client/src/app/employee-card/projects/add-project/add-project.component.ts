@@ -22,7 +22,7 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.employeeId = params['data']
+      this.employeeId = params['data'];
     });
 
     this.form = this.fb.group({
@@ -37,7 +37,7 @@ export class AddProjectComponent implements OnInit {
     const value = { ...this.form.value }
     this.projectService.addProject(value).subscribe({
       next: _ => {
-        this.router.navigate(['employees/projects'], { queryParams: { data: this.employeeId } })
+        this.router.navigate(['employees/projects'], { queryParams: { data: this.employeeId } });
       },
       error: error => console.log(error)
     })

@@ -23,7 +23,7 @@ export class LoginComponent {
     const values = {...this.form.value};
     this.accountService.login(values).subscribe({
       next: _ => {
-        this.router.navigateByUrl('/employees')
+        this.router.navigateByUrl('/employees');
       },
       error: error => console.log(error)
     });

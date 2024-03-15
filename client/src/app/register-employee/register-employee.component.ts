@@ -46,10 +46,10 @@ export class RegisterEmployeeComponent {
     const value = { ...this.form.value }
     this.accountService.register(value).subscribe({
       next: _ => {
-        this.router.navigateByUrl('/employees')
+        this.router.navigateByUrl('/employees');
       },
       error: error => console.log(error)
-    })
+    });
   }
   get password() {
     return this.form.controls['password'];

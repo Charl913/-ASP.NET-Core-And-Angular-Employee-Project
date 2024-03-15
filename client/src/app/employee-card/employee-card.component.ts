@@ -44,7 +44,7 @@ export class EmployeeCardComponent implements OnInit {
     this.accountService.currentEmployee$.subscribe({
       next: res => {
         if (res) {
-          this.currentEmployee = res
+          this.currentEmployee = res;
         }
       }
     })
@@ -65,9 +65,11 @@ export class EmployeeCardComponent implements OnInit {
 
   deleteEmployee(id: number) {
     this.http.delete<Employee>('https://localhost:5001/api/admin/delete-employee/' + id).subscribe();
+    this.modalRef?.hide();
   }
 
   addAdmin(id: number) {
     this.http.put<Employee>('https://localhost:5001/api/admin/make-admin/' + id, id).subscribe();
+    this.modalRef?.hide();
   }
 }

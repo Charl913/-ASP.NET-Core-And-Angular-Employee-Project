@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeeDetailComponent {
   employee: Employee = {} as Employee;
   employeeId: any;
-  baseUrl = 'https://localhost:5001/api/employees/'
+  baseUrl = 'https://localhost:5001/api/employees/';
 
 
   constructor(private route: ActivatedRoute,
@@ -19,16 +19,16 @@ export class EmployeeDetailComponent {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.employeeId = params['data'] || null
-    })
-    this.getEmployeeDetails(this.employeeId)
+      this.employeeId = params['data'] || null;
+    });
+    this.getEmployeeDetails(this.employeeId);
   }
 
   getEmployeeDetails(id: number) {
     return this.http.get<Employee>(this.baseUrl + id).subscribe({
       next: res => {
-        const data = JSON.parse(JSON.stringify(res))
-        this.employee = data
+        const data = JSON.parse(JSON.stringify(res));
+        this.employee = data;
       }
     });
   }
