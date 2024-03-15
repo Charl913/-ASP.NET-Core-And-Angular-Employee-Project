@@ -2,6 +2,7 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -53,20 +54,31 @@ namespace API.Controllers
         [HttpPost("add-event")]
         public async Task<ActionResult<ApplicationUserEvent>> AddEvent(EventDTO eventDTO)
         {
-
-            var userEvent = new ApplicationUserEvent
+            if (await EmployeeExists(eventDTO.EmployeeId))
             {
-                Id = eventDTO.EmployeeId,
-                EventTitle = eventDTO.EventTitle,
-                EventDescription = eventDTO.EventDescription,
-                DatePicked = eventDTO.DatePicked
-            };
+                var userEvent = new ApplicationUserEvent
+                {
+                    Id = eventDTO.EmployeeId,
+                    EventTitle = eventDTO.EventTitle,
+                    EventDescription = eventDTO.EventDescription,
+                    DatePicked = eventDTO.DatePicked
+                };
 
-            _context.Events.Add(userEvent);
+                _context.Events.Add(userEvent);
 
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-            return userEvent;
+                return userEvent;
+            }
+            else
+            {
+                return BadRequest("Employee does not exist");
+            }
+        }
+
+        private async Task<bool> EmployeeExists(int employeeId)
+        {
+            return await _context.Events.AnyAsync(x => x.Id == employeeId);
         }
     }
 }

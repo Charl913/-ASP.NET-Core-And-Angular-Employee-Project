@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, TemplateRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -23,7 +22,6 @@ export class AddEventsComponent {
   });
 
   constructor(private fb: FormBuilder,
-    private http: HttpClient,
     private accountService: AccountService,
     private modalService: BsModalService) {
 
@@ -37,7 +35,11 @@ export class AddEventsComponent {
 
   addEvent() {
     const value = { ... this.form.value };
-    this.accountService.addEvent(value).subscribe();
+    this.accountService.addEvent(value).subscribe({
+      error: _ => {
+        this.modalService.hide();
+      }
+    });
   }
 
   get datePicked() {
