@@ -70,15 +70,12 @@ namespace API.Controllers
 
                 return userEvent;
             }
-            else
-            {
-                return BadRequest("Employee does not exist");
-            }
+            return BadRequest("Employee does not exist");
         }
 
         private async Task<bool> EmployeeExists(int employeeId)
         {
-            return await _context.Events.AnyAsync(x => x.Id == employeeId);
+            return await _context.Employees.AnyAsync(x => x.Id == employeeId);
         }
     }
 }

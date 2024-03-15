@@ -27,15 +27,14 @@ export class AddEventsComponent {
 
   }
 
-  openModal(template: TemplateRef<void>) {
-    if (this.form.valid) {
-      this.modalRef = this.modalService.show(template);
-    }
-  }
-
-  addEvent() {
+  addEvent(template: TemplateRef<void>) {
     const value = { ... this.form.value };
     this.accountService.addEvent(value).subscribe({
+      next: _ => {
+        if (this.form.valid) {
+          this.modalRef = this.modalService.show(template);
+        }
+      },
       error: _ => {
         this.modalService.hide();
       }
