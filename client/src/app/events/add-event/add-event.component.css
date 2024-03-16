@@ -16,7 +16,18 @@ hr {
     background-color: orange;
     width: 30%;
     border-radius: 10px;
+    border: 1px solid orange;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
+}
+
+.card-content {
+    background-color: black;
+    border-radius: 0px 0px 10px 10px;
+}
+
+h2 {
+    margin-top: 10px;
+    text-align: center;
 }
 
 form {
@@ -52,6 +63,6 @@ textarea {
 }
 
 .btn-submit:hover {
-    background-color: orange;
+    background-color: rgb(42, 182, 42);
     color: white;
 }

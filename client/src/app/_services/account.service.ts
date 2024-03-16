@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { Employee } from '../_models/employee';
+import { Education, Experience } from '../_models/edit-user-profile';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,13 @@ export class AccountService {
     localStorage.removeItem('employee');
     localStorage.removeItem('project');
     this.currentEmployeeSource.next(null);
+  }
+
+  saveEducation(value: any) {
+    return this.http.post<Education>('https://localhost:5001/api/account/add-education', value);
+  }
+
+  saveExperience(value: any) {
+    return this.http.post<Experience>('https://localhost:5001/api/account/add-experience', value);
   }
 }

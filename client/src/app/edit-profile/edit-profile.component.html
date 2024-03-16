@@ -9,14 +9,27 @@
     <button class="btn-add" (click)="openModal(templateEducation)"><fa-icon [icon]="faSquarePlus"
         [size]="'2x'"></fa-icon>
     </button>
+    <div *ngFor="let education of currentUserEducation">
+      <div class="card">
+        {{education.school}}
+        <br>
+        {{education.degree}}
+      </div>
+    </div>
     <hr>
     <h2>Experience</h2>
     <button class="btn-add" (click)="openModal(templateExperience)"><fa-icon [icon]="faSquarePlus"
         [size]="'2x'"></fa-icon>
     </button>
+    <div *ngFor="let experience of currentUserExperience">
+      <div class="card">
+        {{experience.title}}
+        <br>
+        {{experience.companyName}}
+      </div>
+    </div>
   </div>
 </div>
-
 <ng-template #templateEducation>
   <div class="modal-header" style="background-color: greenyellow; text-align: center;">
     <h4 class="modal-title pull-left">Add Education</h4>
@@ -36,7 +49,6 @@
     </form>
   </div>
 </ng-template>
-
 <ng-template #templateExperience>
   <div class="modal-header" style="background-color: greenyellow; text-align: center;">
     <h4 class="modal-title pull-left">Add Experience</h4>

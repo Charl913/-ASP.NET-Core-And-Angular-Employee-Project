@@ -47,3 +47,12 @@ input {
     background-color: rgb(104, 149, 216);
     color: white;
 }
+
+.card {
+    background-color: aquamarine;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 20%;
+    margin: 10px;
+}

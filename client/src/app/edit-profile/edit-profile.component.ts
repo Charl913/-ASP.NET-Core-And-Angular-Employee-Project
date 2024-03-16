@@ -4,6 +4,8 @@ import { AccountService } from '../_services/account.service';
 import { faPenToSquare, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Education, Experience } from '../_models/edit-user-profile';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-profile',
@@ -15,18 +17,23 @@ export class EditProfileComponent implements OnInit {
   faSquarePlus = faSquarePlus;
   currentEmployee: Employee = {} as Employee;
   modalRef?: BsModalRef;
+  currentUserExperience: Experience[] = [];
+  currentUserEducation: Education[] = [];
 
   education = this.fb.group({
+    employeeId: ['', Validators.required],
     school: ['', Validators.required],
     degree: ['', Validators.required]
   });
 
   experience = this.fb.group({
+    employeeId: ['', Validators.required],
     title: ['', Validators.required],
     companyName: ['', Validators.required]
   });
 
   constructor(private accountService: AccountService,
+    private http: HttpClient,
     private modalService: BsModalService,
     private fb: FormBuilder) { }
 
@@ -39,6 +46,20 @@ export class EditProfileComponent implements OnInit {
       },
       error: error => console.log(error)
     });
+
+    this.http.get<Experience>('https://localhost:5001/api/employeeexperience/' + this.currentEmployee.id).subscribe({
+      next: res => {
+        const data = JSON.parse(JSON.stringify(res));
+        this.currentUserExperience = data;
+      }
+    });
+
+    this.http.get<Education>('https://localhost:5001/api/EmployeeEducation/' + this.currentEmployee.id).subscribe({
+      next: res => {
+        const data = JSON.parse(JSON.stringify(res));
+        this.currentUserEducation = data;
+      }
+    });
   }
 
   openModal(template: TemplateRef<void>) {
@@ -46,14 +67,22 @@ export class EditProfileComponent implements OnInit {
   }
 
   saveEducation() {
+    this.education.controls['employeeId'].setValue(this.currentEmployee.id.toString());
     const values = { ...this.education.value };
+
+    this.accountService.saveEducation(values).subscribe();
+
     this.education.controls['school'].setValue('');
     this.education.controls['degree'].setValue('');
     this.modalService.hide();
   }
 
   saveExperience() {
+    this.experience.controls['employeeId'].setValue(this.currentEmployee.id.toString());
     const values = { ...this.experience.value };
+
+    this.accountService.saveExperience(values).subscribe();
+
     this.experience.controls['title'].setValue('');
     this.experience.controls['companyName'].setValue('');
     this.modalService.hide();

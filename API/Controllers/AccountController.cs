@@ -75,6 +75,40 @@ namespace API.Controllers
             };
         }
 
+        [HttpPost("add-experience")]
+        public async Task<ActionResult<ApplicationUserExperience>> AddExperience(ExperienceDTO experienceDTO) 
+        {
+            var experience = new ApplicationUserExperience
+            {
+                Id = experienceDTO.EmployeeId,
+                Title = experienceDTO.Title,
+                CompanyName = experienceDTO.CompanyName
+            };
+
+            _context.Experience.Add(experience);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpPost("add-education")]
+        public async Task<ActionResult<ApplicationUserEducation>> AddEducation(EducationDTO educationDTO)
+        {
+            var education = new ApplicationUserEducation 
+            {
+                Id = educationDTO.EmployeeId,
+                School = educationDTO.School,
+                Degree = educationDTO.Degree
+            };
+
+            _context.Education.Add(education);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
         private async Task<bool> EmployeeExists(string employeeName)
         {
             return await _context.Employees.AnyAsync(x => x.EmployeeName == employeeName.ToLower());

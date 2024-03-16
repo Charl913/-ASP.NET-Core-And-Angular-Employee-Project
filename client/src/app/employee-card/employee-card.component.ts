@@ -13,17 +13,11 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class EmployeeCardComponent implements OnInit {
   faTrash = faTrash;
-
   faUserTie = faUserTie;
-
   modalRef?: BsModalRef;
-
   title = 'Employees';
-
   baseUrl = 'https://localhost:5001/api/Employees';
-
   employees: Employee[] = [];
-
   currentEmployee: Employee = {} as Employee;
 
   constructor(private http: HttpClient,
@@ -36,7 +30,7 @@ export class EmployeeCardComponent implements OnInit {
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
         this.employees = data;
-        return this.employees
+        return this.employees;
       },
       error: error => console.log(error)
     });
@@ -47,8 +41,7 @@ export class EmployeeCardComponent implements OnInit {
           this.currentEmployee = res;
         }
       }
-    })
-
+    });
   }
 
   openModal(template: TemplateRef<void>) {
