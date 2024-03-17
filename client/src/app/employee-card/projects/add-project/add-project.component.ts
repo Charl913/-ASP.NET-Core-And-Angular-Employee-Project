@@ -11,7 +11,6 @@ import { ProjectService } from 'src/app/_services/project.service';
 })
 export class AddProjectComponent implements OnInit {
   form: any;
-  baseUrl = 'https://localhost:5001/api/employees/';
   employeeId: any;
   faSquarePlus = faSquarePlus;
 
@@ -34,12 +33,12 @@ export class AddProjectComponent implements OnInit {
   }
 
   addProject() {
-    const value = { ...this.form.value }
+    const value = { ...this.form.value };
     this.projectService.addProject(value).subscribe({
       next: _ => {
         this.router.navigate(['employees/projects'], { queryParams: { data: this.employeeId } });
       },
       error: error => console.log(error)
-    })
+    });
   }
 }

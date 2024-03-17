@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { faTrash, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from '../_services/account.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { URLS } from '../environments/urls.environment';
 
 @Component({
   selector: 'app-employee-card',
@@ -16,7 +17,6 @@ export class EmployeeCardComponent implements OnInit {
   faUserTie = faUserTie;
   modalRef?: BsModalRef;
   title = 'Employees';
-  baseUrl = 'https://localhost:5001/api/Employees';
   employees: Employee[] = [];
   currentEmployee: Employee = {} as Employee;
 
@@ -26,7 +26,7 @@ export class EmployeeCardComponent implements OnInit {
     private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.http.get(this.baseUrl).subscribe({
+    this.http.get(URLS.employeeURL).subscribe({
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
         this.employees = data;
@@ -57,12 +57,12 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    this.http.delete<Employee>('https://localhost:5001/api/admin/delete-employee/' + id).subscribe();
+    this.http.delete<Employee>(URLS.adminURL + 'delete-employee/' + id).subscribe();
     this.modalRef?.hide();
   }
 
   addAdmin(id: number) {
-    this.http.put<Employee>('https://localhost:5001/api/admin/make-admin/' + id, id).subscribe();
+    this.http.put<Employee>(URLS.adminURL + 'make-admin/' + id, id).subscribe();
     this.modalRef?.hide();
   }
 }

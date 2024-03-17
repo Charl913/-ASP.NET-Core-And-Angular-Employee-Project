@@ -10,30 +10,34 @@
         <h1>Job Title:</h1>
         <h2>{{employee.jobTitle}}</h2>
     </div>
-    <h1>Education:</h1>
-    <hr>
-    <div *ngFor="let education of currentUserEducation">
-        <div class="color-helper-row">
-            <h1 style="margin-left: 20px;">School:</h1>
-            <h2 style="margin-left: 20px;">{{education.school}}</h2>
-        </div>
-        <div class="color-helper-row">
-            <h1 style="margin-left: 20px;">Degree:</h1>
-            <h2 style="margin-left: 20px;">{{education.degree}}</h2>
-        </div>
+    <div class="content-container">
+        <h1 style="padding: 10px;">Education:</h1>
         <hr>
+        <div *ngFor="let education of currentUserEducation">
+            <div class="color-helper-row">
+                <h1 style="margin-left: 20px;">School:</h1>
+                <h2 style="margin-left: 20px;">{{education.school}}</h2>
+            </div>
+            <div class="color-helper-row">
+                <h1 style="margin-left: 20px;">Degree:</h1>
+                <h2 style="margin-left: 20px;">{{education.degree}}</h2>
+            </div>
+            <hr>
+        </div>
     </div>
-    <h1>Experience:</h1>
-    <hr>
-    <div *ngFor="let experience of currentUserExperience">
-        <div class="color-helper-row">
-            <h1 style="margin-left: 20px;">Title:</h1>
-            <h2 style="margin-left: 20px;">{{experience.title}}</h2>
-        </div>
-        <div class="color-helper-row">
-            <h1 style="margin-left: 20px;">Company Name:</h1>
-            <h2 style="margin-left: 20px;">{{experience.companyName}}</h2>
-        </div>
+    <div class="content-container" style="margin-top: 50px;">
+        <h1 style="padding: 10px;">Experience:</h1>
         <hr>
+        <div *ngFor="let experience of currentUserExperience">
+            <div class="color-helper-row">
+                <h1 style="margin-left: 20px;">Title:</h1>
+                <h2 style="margin-left: 20px;">{{experience.title}}</h2>
+            </div>
+            <div class="color-helper-row">
+                <h1 style="margin-left: 20px;">Company Name:</h1>
+                <h2 style="margin-left: 20px;">{{experience.companyName}}</h2>
+            </div>
+            <hr>
+        </div>
     </div>
 </div>

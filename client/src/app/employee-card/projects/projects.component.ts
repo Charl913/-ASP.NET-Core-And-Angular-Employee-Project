@@ -9,6 +9,7 @@ import { EmployeeService } from 'src/app/_services/employee.service';
 import { faFloppyDisk, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { AccountService } from 'src/app/_services/account.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { URLS } from 'src/app/environments/urls.environment';
 
 @Component({
   selector: 'app-projects',
@@ -16,7 +17,6 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  baseUrl = 'https://localhost:5001/api/employeeprojects';
   Active: Project[] = [];
   Finished: Project[] = [];
   projects: Project[] = [];
@@ -46,7 +46,7 @@ export class ProjectsComponent implements OnInit {
       }
     });
 
-    this.http.get(this.baseUrl).subscribe({
+    this.http.get(URLS.employeeProjectURL).subscribe({
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
         this.projects = data;

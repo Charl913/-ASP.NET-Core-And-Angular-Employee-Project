@@ -1,11 +1,12 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Employee } from '../_models/employee';
 import { AccountService } from '../_services/account.service';
-import { faPenToSquare, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faSquarePlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Education, Experience } from '../_models/edit-user-profile';
 import { HttpClient } from '@angular/common/http';
+import { URLS } from '../environments/urls.environment';
 
 @Component({
   selector: 'app-edit-profile',
@@ -15,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class EditProfileComponent implements OnInit {
   faPenToSquare = faPenToSquare;
   faSquarePlus = faSquarePlus;
+  faTrash = faTrash;
   currentEmployee: Employee = {} as Employee;
   modalRef?: BsModalRef;
   currentUserExperience: Experience[] = [];
@@ -47,14 +49,14 @@ export class EditProfileComponent implements OnInit {
       error: error => console.log(error)
     });
 
-    this.http.get<Experience>('https://localhost:5001/api/employeeexperience/' + this.currentEmployee.id).subscribe({
+    this.http.get<Experience>(URLS.employeeExperienceURL + this.currentEmployee.id).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserExperience = data;
       }
     });
 
-    this.http.get<Education>('https://localhost:5001/api/EmployeeEducation/' + this.currentEmployee.id).subscribe({
+    this.http.get<Education>(URLS.employeeEducationURL + this.currentEmployee.id).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserEducation = data;

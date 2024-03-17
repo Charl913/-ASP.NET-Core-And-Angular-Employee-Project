@@ -3,6 +3,7 @@ import { Employee } from '../../_models/employee';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Education, Experience } from 'src/app/_models/edit-user-profile';
+import { URLS } from 'src/app/environments/urls.environment';
 
 @Component({
   selector: 'app-employee-detail',
@@ -12,7 +13,6 @@ import { Education, Experience } from 'src/app/_models/edit-user-profile';
 export class EmployeeDetailComponent {
   employee: Employee = {} as Employee;
   employeeId: any;
-  baseUrl = 'https://localhost:5001/api/employees/';
   currentUserEducation: Education[] = [];
   currentUserExperience: Experience[] = [];
 
@@ -26,14 +26,14 @@ export class EmployeeDetailComponent {
     });
     this.getEmployeeDetails(this.employeeId);
 
-    this.http.get<Education>('https://localhost:5001/api/EmployeeEducation/' + this.employeeId).subscribe({
+    this.http.get<Education>(URLS.employeeEducationURL + this.employeeId).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserEducation = data;
       }
     });
 
-    this.http.get<Experience>('https://localhost:5001/api/EmployeeExperience/' + this.employeeId).subscribe({
+    this.http.get<Experience>(URLS.employeeExperienceURL + this.employeeId).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserExperience = data;
@@ -42,7 +42,7 @@ export class EmployeeDetailComponent {
   }
 
   getEmployeeDetails(id: number) {
-    return this.http.get<Employee>(this.baseUrl + id).subscribe({
+    return this.http.get<Employee>(URLS.employeeURL + id).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.employee = data;

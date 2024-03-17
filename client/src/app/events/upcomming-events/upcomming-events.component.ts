@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Employee } from 'src/app/_models/employee';
 import { Event } from 'src/app/_models/event';
 import { AccountService } from 'src/app/_services/account.service';
+import { URLS } from 'src/app/environments/urls.environment';
 
 @Component({
   selector: 'app-upcomming-events',
@@ -30,7 +31,7 @@ export class UpcommingEventsComponent implements OnInit {
       }
     })
 
-    this.http.get('https://localhost:5001/api/employeeevent').subscribe({
+    this.http.get(URLS.employeeEvent).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.events = data;

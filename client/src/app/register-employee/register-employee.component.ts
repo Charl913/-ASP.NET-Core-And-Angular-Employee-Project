@@ -9,8 +9,6 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./register-employee.component.css']
 })
 export class RegisterEmployeeComponent {
-  baseUrl = 'https://localhost:5001/api/';
-
   jobTitles = [
     { name: 'Administrator' },
     { name: 'Mobile Application Developer' },

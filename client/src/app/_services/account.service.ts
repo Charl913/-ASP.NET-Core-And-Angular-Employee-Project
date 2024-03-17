@@ -3,20 +3,19 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { Employee } from '../_models/employee';
 import { Education, Experience } from '../_models/edit-user-profile';
+import { URLS } from '../environments/urls.environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/'
-
   private currentEmployeeSource = new BehaviorSubject<Employee | null>(null);
   currentEmployee$ = this.currentEmployeeSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
   login(model: any) {
-    return this.http.post<Employee>(this.baseUrl + 'account/login', model).pipe(
+    return this.http.post<Employee>(URLS.accountURL + 'login', model).pipe(
       map((response: Employee) => {
         const employee = response;
         if (employee) {
@@ -27,7 +26,7 @@ export class AccountService {
   }
 
   register(value: any) {
-    return this.http.post<Employee>(this.baseUrl + 'account/register', value).pipe(
+    return this.http.post<Employee>(URLS.accountURL + 'register', value).pipe(
       map(employee => {
         return employee;
       })
@@ -35,7 +34,7 @@ export class AccountService {
   }
 
   addEvent(value: any) {
-    return this.http.post<Event>('https://localhost:5001/api/admin/add-event', value).pipe(
+    return this.http.post<Event>(URLS.adminURL + 'add-event', value).pipe(
       map(userEvent => {
         return userEvent;
       })
@@ -54,10 +53,10 @@ export class AccountService {
   }
 
   saveEducation(value: any) {
-    return this.http.post<Education>('https://localhost:5001/api/account/add-education', value);
+    return this.http.post<Education>(URLS.accountURL + 'add-education', value);
   }
 
   saveExperience(value: any) {
-    return this.http.post<Experience>('https://localhost:5001/api/account/add-experience', value);
+    return this.http.post<Experience>(URLS.accountURL + 'https://localhost:5001/api/account/add-experience', value);
   }
 }

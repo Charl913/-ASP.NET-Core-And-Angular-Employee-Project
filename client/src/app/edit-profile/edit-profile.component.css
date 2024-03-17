@@ -13,12 +13,13 @@
 }
 
 button:hover {
-    color: green;
+    color: rgb(69, 197, 69);
 }
 
 .content {
     color: black;
     font-weight: bold;
+    width: 100%;
 }
 
 .content-unchanged {
@@ -48,11 +49,27 @@ input {
     color: white;
 }
 
-.card {
-    background-color: aquamarine;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
+.card-container {
     width: 20%;
+}
+
+.card {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 10px;
+    width: auto;
+    height: 90%;
     margin: 10px;
+    color: white;
+    font-size: large;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.icon-container {
+    text-align: end;
 }

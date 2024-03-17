@@ -4,6 +4,7 @@
 
 h1{
   color: white;
+  text-align: center;
 }
 
 h2 {
@@ -12,7 +13,6 @@ h2 {
 }
 
 img {
-  margin-left: 45%;
   margin-bottom: 5%;
   height: 100px;
   width: 100px;
@@ -20,12 +20,25 @@ img {
 }
 
 .color-helper-column {
-  margin-left: 40%;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .color-helper-row {
   display: flex;
   flex-direction: row;
+}
+
+hr {
+  color: crimson;
+}
+
+.content-container {
+  background-color: black;
+  border-radius: 10px;
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
 }
