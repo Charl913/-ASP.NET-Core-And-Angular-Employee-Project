@@ -31,7 +31,7 @@ export class UpcommingEventsComponent implements OnInit {
       }
     })
 
-    this.http.get(URLS.employeeEvent + this.currentUser.id).subscribe({
+    this.http.get(URLS.eventURL + this.currentUser.id).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.events = data;

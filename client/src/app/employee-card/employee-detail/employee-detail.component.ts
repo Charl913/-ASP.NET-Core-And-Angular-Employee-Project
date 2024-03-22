@@ -29,14 +29,14 @@ export class EmployeeDetailComponent {
     });
     this.getEmployeeDetails(this.employeeId);
 
-    this.http.get<Education>(URLS.employeeEducationURL + this.employeeId).subscribe({
+    this.http.get<Education>(URLS.educationURL + this.employeeId).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserEducation = data;
       }
     });
 
-    this.http.get<Experience>(URLS.employeeExperienceURL + this.employeeId).subscribe({
+    this.http.get<Experience>(URLS.experienceURL + this.employeeId).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserExperience = data;

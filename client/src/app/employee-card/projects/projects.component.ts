@@ -46,14 +46,18 @@ export class ProjectsComponent implements OnInit {
       }
     });
 
-    this.http.get(URLS.employeeProjectURL).subscribe({
+    this.http.get(URLS.projectURL + 'get-active-projects/' + this.employeeId).subscribe({
       next: response => {
         const data = JSON.parse(JSON.stringify(response));
-        this.projects = data;
-        if (this.projects) {
-          return this.setUserProjects();
-        }
-        return;
+        this.Active = data;
+      },
+      error: error => console.log(error)
+    });
+
+    this.http.get(URLS.projectURL + 'get-finished-projects/' + this.employeeId).subscribe({
+      next: response => {
+        const data = JSON.parse(JSON.stringify(response));
+        this.Finished = data;
       },
       error: error => console.log(error)
     });
@@ -100,16 +104,6 @@ export class ProjectsComponent implements OnInit {
     this.projectService.saveProjectState(this.Finished).subscribe();
   }
 
-  projectActive() {
-    this.Active = this.projects.filter(item => item.isActive === true);
-    return this.Active;
-  }
-
-  projectFinished() {
-    this.Finished = this.projects.filter(item => item.isActive === false);
-    return this.Finished;
-  }
-
   viewProjectActive(index: number) {
     if (this.Active !== null) {
       const projectActive = this.Active[index];
@@ -123,17 +117,6 @@ export class ProjectsComponent implements OnInit {
       const projectFinished = this.Finished[index];
       localStorage.setItem('project', JSON.stringify(projectFinished));
     }
-  }
-
-  setUserProjects() {
-    const proj = this.projects.filter(item => this.employee.id == item.id);
-    this.projects = proj;
-    if (proj) {
-      this.projectActive();
-      this.projectFinished();
-      return this.projects;
-    }
-    return;
   }
 
   addProject() {

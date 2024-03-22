@@ -5,15 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class EmployeeExperienceController : BaseController
+    public class ExperienceController : BaseController
     {
         private readonly DataContext _context;
-        public EmployeeExperienceController(DataContext context) 
+        public ExperienceController(DataContext context) 
         {
             _context = context;
 
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<ApplicationUserExperience>>> GetExperience(int id) 
         {
@@ -28,7 +27,7 @@ namespace API.Controllers
                     currentUserExperience.Add(experience);
                 }
             }
-
+            
             return currentUserExperience;
         }
     }

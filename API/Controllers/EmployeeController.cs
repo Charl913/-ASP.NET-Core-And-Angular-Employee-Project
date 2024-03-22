@@ -15,7 +15,6 @@ namespace API.Controllers
             _context = context;
 
         }
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetEmployees()
         {
@@ -23,7 +22,6 @@ namespace API.Controllers
 
             return employees;
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployeeDTO>> GetEmployee(int id)
         {

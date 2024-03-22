@@ -49,14 +49,14 @@ export class EditProfileComponent implements OnInit {
       error: error => console.log(error)
     });
 
-    this.http.get<Experience>(URLS.employeeExperienceURL + this.currentEmployee.id).subscribe({
+    this.http.get<Experience>(URLS.experienceURL + this.currentEmployee.id).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserExperience = data;
       }
     });
 
-    this.http.get<Education>(URLS.employeeEducationURL + this.currentEmployee.id).subscribe({
+    this.http.get<Education>(URLS.educationURL + this.currentEmployee.id).subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.currentUserEducation = data;

@@ -5,15 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class EmployeeEventController: BaseController
+    public class EventController: BaseController
     {
         private readonly DataContext _context;
-        public EmployeeEventController(DataContext context)
+        public EventController(DataContext context)
         {
             _context = context;
             
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<ApplicationUserEvent>>> GetEvents(int id)
         {

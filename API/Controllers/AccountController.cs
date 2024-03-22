@@ -17,33 +17,6 @@ namespace API.Controllers
             _context = context;
 
         }
-
-        [HttpPost("register")]
-        public async Task<ActionResult<ApplicationUser>> Register(RegisterDTO registerDTO)
-        {
-            if (await EmployeeExists(registerDTO.EmployeeName))
-            {
-                return BadRequest("User Already Exists");
-            }
-
-            using var hmac = new HMACSHA512();
-
-            var employee = new ApplicationUser
-            {
-                EmployeeName = registerDTO.EmployeeName.ToLower(),
-                JobTitle = registerDTO.JobTitle,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
-                PasswordSalt = hmac.Key,
-                IsAdmin = false
-            };
-
-            _context.Employees.Add(employee);
-
-            await _context.SaveChangesAsync();
-
-            return employee;
-        }
-
         [HttpPost("login")]
         public async Task<ActionResult<EmployeeDTO>> Login(LoginDTO loginDTO)
         {
@@ -74,7 +47,6 @@ namespace API.Controllers
                 IsAdmin = employee.IsAdmin
             };
         }
-
         [HttpPost("add-experience")]
         public async Task<ActionResult<ApplicationUserExperience>> AddExperience(ExperienceDTO experienceDTO) 
         {
@@ -91,7 +63,6 @@ namespace API.Controllers
 
             return Ok();
         }
-
         [HttpDelete("remove-experience/{id}")]
         public async Task<ActionResult<ApplicationUserExperience>> RemoveExperience(int id)
         {
@@ -108,7 +79,6 @@ namespace API.Controllers
 
             return Ok();
         }
-
         [HttpPost("add-education")]
         public async Task<ActionResult<ApplicationUserEducation>> AddEducation(EducationDTO educationDTO)
         {
@@ -125,7 +95,6 @@ namespace API.Controllers
 
             return Ok();
         }
-
         [HttpDelete("remove-education/{id}")]
         public async Task<ActionResult<ApplicationUserEducation>> RemoveEducation(int id)
         {
@@ -141,11 +110,6 @@ namespace API.Controllers
             await _context.SaveChangesAsync();
 
             return Ok();
-        }
-
-        private async Task<bool> EmployeeExists(string employeeName)
-        {
-            return await _context.Employees.AnyAsync(x => x.EmployeeName == employeeName.ToLower());
         }
     }
 }

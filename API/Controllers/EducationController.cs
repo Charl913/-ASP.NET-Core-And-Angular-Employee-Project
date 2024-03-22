@@ -5,15 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class EmployeeEducationController : BaseController
+    public class EducationController : BaseController
     {
         private readonly DataContext _context;
-        public EmployeeEducationController(DataContext context)
+        public EducationController(DataContext context)
         {
             _context = context;
 
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<ApplicationUserEducation>>> GetEducation(int id)
         {

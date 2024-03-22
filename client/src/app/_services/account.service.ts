@@ -26,7 +26,7 @@ export class AccountService {
   }
 
   register(value: any) {
-    return this.http.post<Employee>(URLS.accountURL + 'register', value).pipe(
+    return this.http.post<Employee>(URLS.adminURL + 'register', value).pipe(
       map(employee => {
         return employee;
       })

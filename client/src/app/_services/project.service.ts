@@ -11,7 +11,7 @@ export class ProjectService {
   constructor(private http: HttpClient) { }
 
   addProject(value: any) {
-    return this.http.post<Project>(URLS.employeeProjectURL + '/add', value).pipe(
+    return this.http.post<Project>(URLS.adminURL + 'add-project', value).pipe(
       map(project => {
         return project;
       })
@@ -19,7 +19,7 @@ export class ProjectService {
   }
 
   saveProjectState(value: any) {
-    return this.http.put<Project>(URLS.employeeProjectURL, value).pipe(
+    return this.http.put<Project>(URLS.adminURL + 'save-project-state', value).pipe(
       map(project => {
         return project;
       })
