@@ -89,4 +89,12 @@ export class EditProfileComponent implements OnInit {
     this.experience.controls['companyName'].setValue('');
     this.modalService.hide();
   }
+
+  removeEducation(id: number) {
+    this.http.delete<Education>(URLS.accountURL + 'remove-education/' + id).subscribe();
+  }
+
+  removeExperience(id: number) {
+    this.http.delete<Experience>(URLS.accountURL + 'remove-experience/' + id).subscribe();
+  }
 }

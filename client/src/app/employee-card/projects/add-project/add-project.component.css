@@ -9,8 +9,9 @@
     border-radius: 10px;
     border: 1px solid orange;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
-    margin-left: 35%;
-    width: 30%;
+    margin-left: 25%;
+    width: 20%;
+    position: fixed;
 }
 
 h1 {

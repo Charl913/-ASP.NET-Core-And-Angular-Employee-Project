@@ -118,7 +118,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   viewProjectFinished(index: number) {
-    const dataFinished = this.Finished
+    const dataFinished = this.Finished;
     if (dataFinished !== null) {
       const projectFinished = this.Finished[index];
       localStorage.setItem('project', JSON.stringify(projectFinished));
@@ -126,7 +126,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   setUserProjects() {
-    const proj = this.projects.filter(item => this.employee.id == item.id)
+    const proj = this.projects.filter(item => this.employee.id == item.id);
     this.projects = proj;
     if (proj) {
       this.projectActive();

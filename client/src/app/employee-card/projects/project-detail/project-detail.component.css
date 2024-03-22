@@ -1,9 +1,10 @@
 h1{
   color: white;
+  margin-left: 10px;
 }
 
 h2 {
-  color: aquamarine;
+  color: orange;
   margin-left: 10px;
 }
 
@@ -28,7 +29,7 @@ a {
   float: right;
   font-weight: bold;
   display: block;
-  color: black;
+  color: orange;
   text-align: center;
   text-decoration: none;
   border-radius: 10px;
@@ -38,4 +39,11 @@ a:hover {
   font-weight: bold;
   color: white;
   cursor: pointer;
+}
+
+.content-container {
+  background-color: black;
+  border-radius: 10px;
+  width: 50%;
+  margin-left: 25%;
 }

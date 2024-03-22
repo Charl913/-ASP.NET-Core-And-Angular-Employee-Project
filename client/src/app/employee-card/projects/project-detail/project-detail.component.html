@@ -4,25 +4,26 @@
             <h1>Title:</h1>
             <h2>{{project.projectTitle}}</h2>
         </div>
-        <hr style="color: yellow;">
-        <h1>Requirements:</h1>
-        <h2 style="margin-left: 0%;">{{project.projectRequirements}}</h2>
-        <hr style="color: yellow;">
-        <div class="color-helper-row">
-            <h1>View Code:</h1>
-            <h2><a href="{{project.projectCode}}"><fa-icon [icon]="faLink" style="margin-left: 10px;"></fa-icon></a>
-                View Code
-            </h2>
-        </div>
-        <hr style="color: yellow;">
-        <div class="color-helper-row">
-            <h1>State:</h1>
-            <ng-container *ngIf="project.isActive == true">
-                <h2>Active</h2>
-            </ng-container>
-            <ng-container *ngIf="project.isActive == false">
-                <h2>Finished</h2>
-            </ng-container>
+        <div class="content-container">
+            <h1 style="text-align: center;">Project Details <fa-icon [icon]="faFolderOpen"></fa-icon> :</h1>
+            <h1 style="margin-top: 10px;">Requirements:</h1>
+            <h2>{{project.projectRequirements}}</h2>
+            <hr style="color: white;">
+            <div class="color-helper-row">
+                <h1 style="margin-left: 10px;">Code:</h1>
+                <h2><a href="{{project.projectCode}}">View Code On GitHub<fa-icon [icon]="faLink"
+                            style="margin-left: 10px;"></fa-icon></a></h2>
+            </div>
+            <hr style="color: white;">
+            <div class="color-helper-row">
+                <h1 style="margin-left: 10px;">State:</h1>
+                <ng-container *ngIf="project.isActive == true">
+                    <h2>Active</h2>
+                </ng-container>
+                <ng-container *ngIf="project.isActive == false">
+                    <h2>Finished</h2>
+                </ng-container>
+            </div>
         </div>
     </div>
 </div>

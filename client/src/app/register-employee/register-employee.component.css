@@ -5,9 +5,10 @@
     border-radius: 10px;
     border: 1px solid orange;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
-    width: 30%;
+    width: 20%;
     align-content: center;
-    margin-left: 35%;
+    margin-left: 25%;
+    position: fixed;
 }
 
 h1 {

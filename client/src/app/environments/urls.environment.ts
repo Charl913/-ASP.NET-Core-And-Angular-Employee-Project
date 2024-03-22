@@ -5,5 +5,5 @@ export const URLS = {
     employeeProjectURL: 'https://localhost:5001/api/EmployeeProjects',
     employeeExperienceURL: 'https://localhost:5001/api/EmployeeExperience/',
     employeeEducationURL: 'https://localhost:5001/api/EmployeeEducation/',
-    employeeEvent: 'https://localhost:5001/api/EmployeeEvent'
+    employeeEvent: 'https://localhost:5001/api/EmployeeEvent/'
 };

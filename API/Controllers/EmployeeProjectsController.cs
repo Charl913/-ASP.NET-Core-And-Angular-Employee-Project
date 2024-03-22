@@ -24,7 +24,7 @@ namespace API.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<ActionResult<ApplicationUserProject>> AddProject(AddProjectDTO addProjectDTO)
+        public async Task<ActionResult<ApplicationUserProject>> AddProject(ProjectDTO addProjectDTO)
         {
 
             var project = new ApplicationUserProject

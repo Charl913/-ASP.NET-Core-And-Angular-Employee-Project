@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Education, Experience } from 'src/app/_models/edit-user-profile';
 import { URLS } from 'src/app/environments/urls.environment';
+import { faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-employee-detail',
@@ -15,6 +16,8 @@ export class EmployeeDetailComponent {
   employeeId: any;
   currentUserEducation: Education[] = [];
   currentUserExperience: Experience[] = [];
+  faGraduationCap = faGraduationCap;
+  faBriefCase = faBriefcase;
 
 
   constructor(private route: ActivatedRoute,
@@ -39,6 +42,8 @@ export class EmployeeDetailComponent {
         this.currentUserExperience = data;
       }
     });
+
+    console.log(this.currentUserEducation);
   }
 
   getEmployeeDetails(id: number) {

@@ -14,12 +14,21 @@ namespace API.Controllers
             
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUserEvent>>> GetEvents()
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<ApplicationUserEvent>>> GetEvents(int id)
         {
-            var employeeEvents = await _context.Events.ToListAsync();
+            var currentUserEvents = new List<ApplicationUserEvent>();
+            var events = await _context.Events.ToListAsync();
 
-            return employeeEvents;            
+            foreach(var e in events)
+            {
+                if(e.Id == id)
+                {
+                    currentUserEvents.Add(e);
+                }
+            }
+
+            return currentUserEvents;        
         }
     }
 }

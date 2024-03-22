@@ -92,6 +92,23 @@ namespace API.Controllers
             return Ok();
         }
 
+        [HttpDelete("remove-experience/{id}")]
+        public async Task<ActionResult<ApplicationUserExperience>> RemoveExperience(int id)
+        {
+            var employee = await _context.Experience.FindAsync(id);
+
+            if(employee == null)
+            {
+                return BadRequest("Didn't find");
+            }
+
+            _context.Experience.Remove(employee);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
         [HttpPost("add-education")]
         public async Task<ActionResult<ApplicationUserEducation>> AddEducation(EducationDTO educationDTO)
         {
@@ -103,6 +120,23 @@ namespace API.Controllers
             };
 
             _context.Education.Add(education);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpDelete("remove-education/{id}")]
+        public async Task<ActionResult<ApplicationUserEducation>> RemoveEducation(int id)
+        {
+            var education = await _context.Education.FirstOrDefaultAsync(q => q.EducationId == id);
+
+            if(education == null)
+            {
+                return BadRequest("Dindn't find");
+            }
+
+            _context.Education.Remove(education);
 
             await _context.SaveChangesAsync();
 

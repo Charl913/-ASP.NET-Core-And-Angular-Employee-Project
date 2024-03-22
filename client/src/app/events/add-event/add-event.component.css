@@ -11,13 +11,14 @@ hr {
 }
 
 .card {
-    margin-left: 35%;
+    margin-left: 25%;
     margin-top: 10px;
     background-color: orange;
-    width: 30%;
+    width: 20%;
     border-radius: 10px;
     border: 1px solid orange;
     box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
+    position: fixed;
 }
 
 .card-content {
@@ -57,12 +58,11 @@ textarea {
     border-radius: 10px;
     text-align: center;
     width: 20%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 1, 1);
 }
 
 .btn-submit:hover {
-    background-color: rgb(42, 182, 42);
+    background-color: orange;
     color: white;
 }

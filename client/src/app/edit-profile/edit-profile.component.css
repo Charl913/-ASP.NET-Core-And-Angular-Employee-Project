@@ -13,7 +13,7 @@
 }
 
 button:hover {
-    color: rgb(69, 197, 69);
+    color: white;
 }
 
 .content {
@@ -40,13 +40,14 @@ input {
     float: right;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: aqua;
+    background-color: black;
+    color: white;
     border: none;
 }
 
 .btn-save:hover {
-    background-color: rgb(104, 149, 216);
-    color: white;
+    background-color: orange;
+    color: black;
 }
 
 .card-container {
@@ -72,4 +73,9 @@ input {
 
 .icon-container {
     text-align: end;
+}
+
+.btn-remove {
+    border: none;
+    background-color: gray;
 }

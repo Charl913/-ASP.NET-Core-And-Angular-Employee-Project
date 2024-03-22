@@ -26,11 +26,10 @@ export class EmployeeCardComponent implements OnInit {
     private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.http.get(URLS.employeeURL).subscribe({
-      next: response => {
-        const data = JSON.parse(JSON.stringify(response));
+    this.http.get<Employee>(URLS.employeeURL).subscribe({
+      next: res => {
+        const data = JSON.parse(JSON.stringify(res));
         this.employees = data;
-        return this.employees;
       },
       error: error => console.log(error)
     });

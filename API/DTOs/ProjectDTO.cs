@@ -1,6 +1,6 @@
 namespace API.DTOs
 {
-    public class AddProjectDTO
+    public class ProjectDTO
     {
         public int EmployeeId { get; set; }
         public string ProjectTitle { get; set; }

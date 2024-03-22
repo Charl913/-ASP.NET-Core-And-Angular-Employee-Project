@@ -14,7 +14,8 @@
         <div class="card">
           <div class="icon-container">
             <fa-icon style="margin-right: 10px; color:white;" [icon]="faPenToSquare" [size]="'lg'"></fa-icon>
-            <fa-icon style="color: black;" [icon]="faTrash" [size]="'lg'"></fa-icon>
+            <button class="btn-remove" (click)="removeEducation(education.educationId)"><fa-icon style="color: black;"
+                [icon]="faTrash" [size]="'lg'"></fa-icon></button>
           </div>
           {{education.school}}
           <hr>
@@ -32,7 +33,8 @@
         <div class="card">
           <div class="icon-container">
             <fa-icon style="margin-right: 10px; color:white;" [icon]="faPenToSquare" [size]="'lg'"></fa-icon>
-            <fa-icon style="color: black;" [icon]="faTrash" [size]="'lg'"></fa-icon>
+            <button class="btn-remove" (click)="removeExperience(experience.experienceId)"><fa-icon
+                style="color: black;" [icon]="faTrash" [size]="'lg'"></fa-icon></button>
           </div>
           {{experience.title}}
           <hr>
@@ -43,7 +45,7 @@
   </div>
 </div>
 <ng-template #templateEducation>
-  <div class="modal-header" style="background-color: greenyellow; text-align: center;">
+  <div class="modal-header" style="background-color: orange; text-align: center;">
     <h4 class="modal-title pull-left">Add Education</h4>
     <button type="button" class="btn-close close pull-right" style="width: 5%;" aria-label="Close"
       (click)="modalRef?.hide()">
@@ -62,7 +64,7 @@
   </div>
 </ng-template>
 <ng-template #templateExperience>
-  <div class="modal-header" style="background-color: greenyellow; text-align: center;">
+  <div class="modal-header" style="background-color: orange; text-align: center;">
     <h4 class="modal-title pull-left">Add Experience</h4>
     <button type="button" class="btn-close close pull-right" style="width: 5%;" aria-label="Close"
       (click)="modalRef?.hide()">
