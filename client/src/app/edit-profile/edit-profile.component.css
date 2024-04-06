@@ -2,6 +2,7 @@
     background-color: orange;
     padding: 0px;
     border-radius: 10px;
+    box-shadow: 30px 30px 10px rgba(0, 0, 1, 1);
 }
 
 .btn-add {

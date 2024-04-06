@@ -57,6 +57,6 @@ export class AccountService {
   }
 
   saveExperience(value: any) {
-    return this.http.post<Experience>(URLS.accountURL + 'https://localhost:5001/api/account/add-experience', value);
+    return this.http.post<Experience>(URLS.accountURL + 'add-experience', value);
   }
 }

@@ -28,6 +28,7 @@ import { UpcommingEventsComponent } from './events/upcomming-events/upcomming-ev
 import { AddEventsComponent } from './events/add-event/add-event.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { EmployeeMostProjectsCompleted } from './employee-most-projects-finished/employee-most-projects-finished';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PasswordStrengthDirective,
     CalanderComponent,
     UpcommingEventsComponent,
-    AddEventsComponent
+    AddEventsComponent,
+    EmployeeMostProjectsCompleted
   ],
   imports: [
     BrowserModule,

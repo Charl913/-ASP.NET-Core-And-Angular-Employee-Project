@@ -11,6 +11,7 @@ img {
 }
 
 .card {
+  position: static;
   background-color: rgb(88, 86, 86);
   padding: 20px;
   border-radius: 0 0 15px 15px;

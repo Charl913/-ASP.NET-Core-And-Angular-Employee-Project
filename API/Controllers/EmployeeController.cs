@@ -35,5 +35,40 @@ namespace API.Controllers
                 IsAdmin = employee.IsAdmin
             };
         }
+        [HttpGet("employee-of-the-month")]
+        public async Task<ActionResult<EmployeeDTO>> GetEmployeeOfTheMonth()
+        {
+            var projects = await _context.Projects.ToListAsync();
+
+            var projectCounts = new Dictionary<int, int>();
+
+            foreach (var project in projects)
+            {
+                if (!project.IsActive)
+                {
+                    if (projectCounts.ContainsKey(project.Id))
+                    {
+                        projectCounts[project.Id]++;
+                    }
+                    else
+                    {
+                        projectCounts[project.Id] = 1;
+                    }
+                }
+            }
+
+            var maxProjects = projectCounts.Values.Max();
+            var employeeIdWithMaxProjects = projectCounts.FirstOrDefault(x => x.Value == maxProjects).Key;
+
+            var employeeOfTheMonth = await _context.Employees.FindAsync(employeeIdWithMaxProjects);
+
+            return new EmployeeDTO
+            {
+                Id = employeeOfTheMonth.Id,
+                EmployeeName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(employeeOfTheMonth.EmployeeName),
+                JobTitle = employeeOfTheMonth.JobTitle,
+                IsAdmin = employeeOfTheMonth.IsAdmin
+            };
+        }
     }
 }
