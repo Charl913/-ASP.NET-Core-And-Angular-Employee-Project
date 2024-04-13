@@ -14,7 +14,7 @@ export class EmployeeMostProjectsCompleted implements OnInit {
   constructor(private http: HttpClient){}
 
   ngOnInit(): void {
-    this.http.get(URLS.employeeURL + 'employee-of-the-month').subscribe({
+    this.http.get(URLS.employeeURL + 'most-projects-finished').subscribe({
       next: res => {
         const data = JSON.parse(JSON.stringify(res));
         this.employees = data;
